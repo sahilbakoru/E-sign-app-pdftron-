@@ -1,7 +1,7 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/storage';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
 import { mergeAnnotations } from '../components/MergeAnnotations/MergeAnnotations';
 
@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+export { firebase};
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -28,16 +29,18 @@ export const signInWithGoogle = () => {
   auth.signInWithPopup(provider);
 };
 
-export const generateUserDocument = async (user, additionalData) => {
+export const generateUserDocument = async (user,additionalData, phone) => {
   if (!user) return;
   const userRef = firestore.doc(`users/${user.uid}`);
+
+
   const snapshot = await userRef.get();
   if (!snapshot.exists) {
     const { email, displayName, photoURL } = user;
     try {
       await userRef.set({
         displayName,
-        email,
+        phone:"",
         photoURL,
         ...additionalData,
       });
@@ -61,7 +64,7 @@ const getUserDocument = async uid => {
   }
 };
 
-export const addDocumentToSign = async (uid, email, docRef, emails) => {
+export const addDocumentToSign = async (uid, phone, docRef, phones) => {
   if (!uid) return;
   const signed = false;
   const xfdf = [];
@@ -72,9 +75,9 @@ export const addDocumentToSign = async (uid, email, docRef, emails) => {
     .collection('documentsToSign')
     .add({
       uid,
-      email,
+      phone,
       docRef,
-      emails,
+      phones,
       xfdf,
       signedBy,
       signed,
@@ -89,22 +92,22 @@ export const addDocumentToSign = async (uid, email, docRef, emails) => {
     });
 };
 
-export const updateDocumentToSign = async (docId, email, xfdfSigned) => {
+export const updateDocumentToSign = async (docId, phone, xfdfSigned) => {
   const documentRef = firestore.collection('documentsToSign').doc(docId);
   documentRef
     .get()
     .then(async doc => {
       if (doc.exists) {
-        const { signedBy, emails, xfdf, docRef } = doc.data();
-        if (!signedBy.includes(email)) {
-          const signedByArray = [...signedBy, email];
+        const { signedBy, phones, xfdf, docRef } = doc.data();
+        if (!signedBy.includes(phone)) {
+          const signedByArray = [...signedBy, phone];
           const xfdfArray = [...xfdf, xfdfSigned];
           await documentRef.update({
             xfdf: xfdfArray,
             signedBy: signedByArray,
           });
 
-          if (signedByArray.length === emails.length) {
+          if (signedByArray.length === phones.length) {
             const time = new Date();
             await documentRef.update({
               signed: true,
@@ -123,14 +126,14 @@ export const updateDocumentToSign = async (docId, email, xfdfSigned) => {
     });
 };
 
-export const searchForDocumentToSign = async email => {
+export const searchForDocumentToSign = async phone => {
   const documentsRef = firestore.collection('documentsToSign');
   const query = documentsRef
-    .where('emails', 'array-contains', email)
+    .where('phones', 'array-contains', phone)
     .where('signed', '==', false);
 
   const querySigned = documentsRef
-    .where('signedBy', 'array-contains', email);
+    .where('signedBy', 'array-contains', phone);
 
   const docIds = [];
   const docIdSigned = [];
@@ -151,10 +154,10 @@ export const searchForDocumentToSign = async email => {
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        const { docRef, email, requestedTime } = doc.data();
+        const { docRef, phone, requestedTime } = doc.data();
         const docId = doc.id;
         if (!docIdSigned.includes(docId)) {
-          docIds.push({ docRef, email, requestedTime, docId });
+          docIds.push({ docRef, phone, requestedTime, docId });
         }
       });
     })
@@ -164,22 +167,22 @@ export const searchForDocumentToSign = async email => {
   return docIds;
 };
 
-export const searchForDocumentsSigned = async email => {
+export const searchForDocumentsSigned = async phone => {
   const documentsRef = firestore.collection('documentsToSign');
 
   const docIds = [];
 
   let query = documentsRef
-    .where('email', '==', email)
+    .where('phone', '==', phone)
     .where('signed', '==', true);
 
   await query
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        const { docRef, emails, signedTime } = doc.data();
+        const { docRef, phones, signedTime } = doc.data();
         const docId = doc.id;
-        docIds.push({ docRef, emails, signedTime, docId });
+        docIds.push({ docRef, phones, signedTime, docId });
       });
     })
     .catch(function (error) {

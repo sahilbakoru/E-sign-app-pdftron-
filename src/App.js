@@ -25,8 +25,8 @@ const App = () => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const user = await generateUserDocument(userAuth);
-        const { uid, displayName, email, photoURL } = user;
-        dispatch(setUser({ uid, displayName, email, photoURL }));
+        const { uid, displayName, phone, photoURL } = user;
+        dispatch(setUser({ uid, displayName, phone, photoURL }));
       }
     });
   }, [dispatch]);

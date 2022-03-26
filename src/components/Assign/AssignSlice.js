@@ -7,7 +7,7 @@ export const AssignSlice = createSlice({
   },
   reducers: {
     addSignee: (state, action) => {
-      state.signees = [...state.signees, { key: action.payload.key, name: action.payload.name, email: action.payload.email } ];
+      state.signees = [...state.signees, { key: action.payload.key, name: action.payload.name, phone: action.payload.phone } ];
     },
     resetSignee: (state, action) => {
       console.log('resetSignee');

@@ -15,7 +15,7 @@ import 'gestalt/dist/gestalt.css';
 import { addSignee, selectAssignees } from './AssignSlice';
 
 const Assign = () => {
-  const [email, setEmail] = useState('');
+  const [phone, setphone] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [showToast, setShowToast] = useState(false);
   const assignees = useSelector(selectAssignees);
@@ -30,11 +30,11 @@ const Assign = () => {
     }
   };
 
-  const addUser = (name, email) => {
-    const key = `${new Date().getTime()}${email}`;
-    if (name !== '' && email !== '') {
-      dispatch(addSignee({ key, name, email }));
-      setEmail('');
+  const addUser = (name, phone) => {
+    const key = `${new Date().getTime()}${phone}`;
+    if (name !== '' && phone !== '') {
+      dispatch(addSignee({ key, name, phone }));
+      setphone('');
       setDisplayName('');
     }
   };
@@ -58,18 +58,18 @@ const Assign = () => {
           </Box>
           <Box padding={2}>
             <TextField
-              id="email"
-              onChange={event => setEmail(event.value)}
-              placeholder="Enter recipient's email"
-              label="Email"
-              value={email}
-              type="email"
+              id="phone"
+              onChange={event => setphone(event.value)}
+              placeholder="Enter recipient's phone"
+              label="phone"
+              value={phone}
+              type="phone"
             />
           </Box>
           <Box padding={2}>
             <Button
               onClick={event => {
-                addUser(displayName, email);
+                addUser(displayName, phone);
               }}
               text="Add user"
               color="blue"
@@ -84,7 +84,7 @@ const Assign = () => {
                     <Text weight="bold">Name</Text>
                   </Table.HeaderCell>
                   <Table.HeaderCell>
-                    <Text weight="bold">Email</Text>
+                    <Text weight="bold">phone</Text>
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
@@ -95,7 +95,7 @@ const Assign = () => {
                       <Text>{user.name}</Text>
                     </Table.Cell>
                     <Table.Cell>
-                      <Text>{user.email}</Text>
+                      <Text>{user.phone}</Text>
                     </Table.Cell>
                   </Table.Row>
                 ))}

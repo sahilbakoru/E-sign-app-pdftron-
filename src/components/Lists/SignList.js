@@ -9,7 +9,7 @@ import { navigate } from '@reach/router';
 
 const SignList = () => {
   const user = useSelector(selectUser);
-  const { email } = user;
+  const { phone } = user;
 
   const [docs, setDocs] = useState([]);
   const [show, setShow] = useState(true);
@@ -18,13 +18,13 @@ const SignList = () => {
 
   useEffect(() => {
     async function getDocs() {
-      const docsToSign = await searchForDocumentToSign(email);
+      const docsToSign = await searchForDocumentToSign(phone);
       setDocs(docsToSign);
       setShow(false);
     }
 
     setTimeout(getDocs, 1000);
-  }, [email]);
+  }, [phone]);
 
   return (
     <div>
@@ -48,7 +48,7 @@ const SignList = () => {
                 {docs.map(doc => (
                   <Table.Row key={doc.docRef}>
                     <Table.Cell>
-                      <Text>{doc.email}</Text>
+                      <Text>{doc.phone}</Text>
                     </Table.Cell>
                     <Table.Cell>
                       <Text>{doc.requestedTime ? new Date(doc.requestedTime.seconds*1000).toDateString() : ''}</Text>

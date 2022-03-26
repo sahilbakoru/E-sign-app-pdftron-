@@ -16,7 +16,7 @@ const SignDocument = () => {
   const doc = useSelector(selectDocToSign);
   const user = useSelector(selectUser);
   const { docRef, docId } = doc;
-  const { email } = user;
+  const { phone } = user;
 
   const viewer = useRef(null);
 
@@ -69,7 +69,7 @@ const SignDocument = () => {
           annotations.forEach(function(annot) {
             if (annot instanceof Annotations.WidgetAnnotation) {
               Annotations.WidgetAnnotation.getCustomStyles = normalStyles;
-              if (!annot.fieldName.startsWith(email)) {
+              if (!annot.fieldName.startsWith(phone)) {
                 annot.Hidden = true;
                 annot.Listable = false;
               }
@@ -78,7 +78,7 @@ const SignDocument = () => {
         }
       });
     });
-  }, [docRef, email]);
+  }, [docRef, phone]);
 
   const nextField = () => {
     let annots = annotManager.getAnnotationsList();
@@ -102,7 +102,7 @@ const SignDocument = () => {
 
   const completeSigning = async () => {
     const xfdf = await annotManager.exportAnnotations({ widgets: false, links: false });
-    await updateDocumentToSign(docId, email, xfdf);
+    await updateDocumentToSign(docId, phone, xfdf);
     navigate('/');
   }
 

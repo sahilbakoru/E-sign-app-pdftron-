@@ -13,23 +13,23 @@ import {
 import 'gestalt/dist/gestalt.css';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
+  const [phone, setphone] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [error, setError] = useState(null);
 
-  const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
+  const createUserWithphoneAndPasswordHandler = async (event, phone, password) => {
     try{
-      const {user} = await auth.createUserWithEmailAndPassword(email, password);
+      const {user} = await auth.createUserWithphoneAndPassword(phone, password);
       generateUserDocument(user, {displayName});
     }
     catch(error){
-      setError('Error Signing up with email and password');
+      setError('Error Signing up with phone and password');
     }
 
-    setEmail("sahilbakoru1999@gmail.com");
-    setPassword("sahil@123");
-    setDisplayName("sahil");
+    setphone("");
+    setPassword("");
+    setDisplayName("");
   };
 
   return (
@@ -52,12 +52,12 @@ const SignUp = () => {
         </Box>
         <Box padding={2}>
           <TextField
-            id="email"
-            onChange={event => setEmail(event.value)}
-            placeholder="Enter your email"
-            label="Email"
-            value={email}
-            type="email"
+            id="phone"
+            onChange={event => setphone(event.value)}
+            placeholder="Enter your phone"
+            label="phone"
+            value={phone}
+            type="phone"
           />
         </Box>
         <Box padding={2}>
@@ -73,7 +73,7 @@ const SignUp = () => {
         <Box padding={2}>
           <Button
             onClick={event => {
-                createUserWithEmailAndPasswordHandler(event, email, password);
+                createUserWithphoneAndPasswordHandler(event, phone, password);
                 navigate('/');
               }}
             text="Sign up"

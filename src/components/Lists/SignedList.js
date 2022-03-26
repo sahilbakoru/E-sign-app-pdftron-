@@ -9,7 +9,7 @@ import { navigate } from '@reach/router';
 
 const SignedList = () => {
   const user = useSelector(selectUser);
-  const { email } = user;
+  const { phone } = user;
   const [docs, setDocs] = useState([]);
   const [show, setShow] = useState(true);
 
@@ -17,12 +17,12 @@ const SignedList = () => {
 
   useEffect(() => {
     async function getDocs() {
-      const docsToView = await searchForDocumentsSigned(email);
+      const docsToView = await searchForDocumentsSigned(phone);
       setDocs(docsToView);
       setShow(false);
     }
     setTimeout(getDocs, 1000);
-  }, [email]);
+  }, [phone]);
 
   return (
     <div>
@@ -46,8 +46,8 @@ const SignedList = () => {
                 {docs.map(doc => (
                   <Table.Row key={doc.docRef}>
                     <Table.Cell>
-                      {doc.emails.map(email => (
-                        <Text key={email}>{email}</Text>
+                      {doc.phones.map(phone => (
+                        <Text key={phone}>{phone}</Text>
                       ))}
                     </Table.Cell>
                     <Table.Cell>

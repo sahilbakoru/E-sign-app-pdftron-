@@ -6,17 +6,17 @@ import 'gestalt/dist/gestalt.css';
 import { auth } from '../../firebase/firebase';
 
 const PasswordReset = () => {
-  const [email, setEmail] = useState('');
-  const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
+  const [phone, setphone] = useState('');
+  const [phoneHasBeenSent, setphoneHasBeenSent] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendResetEmail = event => {
+  const sendResetphone = event => {
     auth
-      .sendPasswordResetEmail(email)
+      .sendPasswordResetphone(phone)
       .then(() => {
-        setEmailHasBeenSent(true);
+        setphoneHasBeenSent(true);
         setTimeout(() => {
-          setEmailHasBeenSent(false);
+          setphoneHasBeenSent(false);
         }, 3000);
       })
       .catch(() => {
@@ -32,23 +32,23 @@ const PasswordReset = () => {
             <Heading size="md">Reset your password</Heading>
           </Box>
           {error !== null && <Toast text={error} />}
-          {emailHasBeenSent !== false && (
-            <Toast text={'An email with reset info is on the way'} />
+          {phoneHasBeenSent !== false && (
+            <Toast text={'An phone with reset info is on the way'} />
           )}
           <Box padding={2}>
             <TextField
-              id="email"
-              onChange={event => setEmail(event.value)}
-              placeholder="Enter your email"
-              label="Email"
-              value={email}
-              type="email"
+              id="phone"
+              onChange={event => setphone(event.value)}
+              placeholder="Enter your phone"
+              label="phone"
+              value={phone}
+              type="phone"
             />
           </Box>
           <Box padding={2}>
             <Button
               onClick={event => {
-                sendResetEmail(event);
+                sendResetphone(event);
                 navigate('/');
               }}
               text="Reset"

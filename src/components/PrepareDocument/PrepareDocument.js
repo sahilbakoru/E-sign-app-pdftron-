@@ -26,14 +26,14 @@ const PrepareDocument = () => {
 
   const assignees = useSelector(selectAssignees);
   const assigneesValues = assignees.map(user => {
-    return { value: user.email, label: user.name };
+    return { value: user.phone, label: user.name };
   });
   let initialAssignee =
     assigneesValues.length > 0 ? assigneesValues[0].value : '';
   const [assignee, setAssignee] = useState(initialAssignee);
 
   const user = useSelector(selectUser);
-  const { uid, email } = user;
+  const { uid, phone } = user;
 
   const viewer = useRef(null);
   const filePicker = useRef(null);
@@ -270,10 +270,10 @@ const PrepareDocument = () => {
     });
 
     // create an entry in the database
-    const emails = assignees.map(assignee => {
-      return assignee.email;
+    const phones = assignees.map(assignee => {
+      return assignee.phone;
     });
-    await addDocumentToSign(uid, email, referenceString, emails);
+    await addDocumentToSign(uid, phone, referenceString, phones);
     dispatch(resetSignee());
     navigate('/');
   };
