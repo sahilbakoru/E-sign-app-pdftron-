@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   Box,
   Button,
@@ -23,16 +23,48 @@ const ProfilePage = () => {
   const user = useSelector(selectUser);
   const { displayName, photoURL, phone } = user;
   const [newname, setName2] = useState()
-  console.log(user)
+  const [users, setUsers] = useState([]);
+  console.log("all Users",users )
+
+
+  console.log("user",user)
 
   const updateName =  async( uid,doc) => {
-    //  const newname2 =JSON.stringify(id)
-    // console.log("set users", setName2)
- console.log("newname", newname)
-console.log("id", user.uid)
-
+   
    await firestore.collection("users").doc(user.uid).update({displayName:newname});
+   document.location.reload()
   };
+
+
+  useEffect((e) => { 
+   
+    firestore.collection('users').onSnapshot(snapshot => {
+     
+      setUsers(snapshot.docs.map(doc => ({
+        // id:doc.id,
+        displayName:doc.data().displayName,
+      })))
+    })
+    
+ 
+
+  },[]);
+
+let exist=true
+ 
+for (var i = 0; i < users.length; i++) {
+    console.log(users[i]);
+    if (users[i].displayName===newname) {
+      exist=true
+      break;
+    }
+    else{
+      exist=false
+    }
+}
+
+
+
   return (
     <Box display="flex" direction="row" paddingY={2} color={'lightGray'}>
       <Column span={9}>
@@ -49,18 +81,26 @@ console.log("id", user.uid)
              
               <Text>{phone}</Text>
             </Stack>
+
+
+            {displayName==null?"please add username to send or receve docs":""}
+            {exist?<h4>❌ </h4>: "" }
+
+&nbsp;
+&nbsp; 
 { displayName==null?
 <div>
 <input placeholder='enter username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
 <button color='blue' text='add username' onClick={() => {
       updateName(displayName);
-    }} >add username</button>
+    }} >add </button>
 </div>:
             <Stack>
               <Text>{displayName}</Text>
             </Stack>
 
 }
+
             <Box padding={1}>
               <Button
                 onClick={() => {
