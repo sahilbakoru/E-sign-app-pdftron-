@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase, generateUserDocument,firestore} from '../../firebase/firebase';
+
+
+
 import {
   Box,
   Button,
@@ -12,6 +15,8 @@ import {
   Heading,
 } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
+import { Label } from 'gestalt';
+import { Spinner } from 'gestalt';
 
 const SignIn = () => {
   // Inputs
@@ -19,8 +24,10 @@ const SignIn = () => {
   const [otp, setotp] = useState('');
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState('');
+  const [show2, setshow2] = useState(false);
 
-  // Sent OTP
+ 
+ 
  
     
   const signin =  () => {
@@ -69,13 +76,16 @@ const SignIn = () => {
   }
   // Validate OTP
 const ValidateOtp = () => {
+    setshow2(true)
     if (otp === null || final === null)
         return;
     final.confirm(otp).then((result) => {
         // success
+       
     }).catch((err) => {
         alert("Wrong code");
     })
+
   } 
   
  
@@ -83,27 +93,33 @@ const ValidateOtp = () => {
 
 
   return (
-      <div style={{ "marginTop": "200px" }}>
+      <div style={{ "marginTop": "8%" }}>
+          <center><h1 style={{"color":"grey"}}>Login / SignUp</h1></center>
+          <br></br>
           <center>
-              <div class="input-field" >
-              <input type="text" id="username" required placeholder='username'></input>
-              <label for="username" >username</label>
-              </div>
               <br></br>
               <div style={{ display: !show ? "block" : "none" }}>
-                  <input  value={phone} onChange={(e) => { 
+                 
+                 <h6 style={{color:"blueviolet"}}>Enter Phone with country-code</h6>
+                      <input  value={phone} onChange={(e) => { 
                      setnumber (e.target.value) }}
-                      placeholder="phone number" />
+                      placeholder="Phone number" />
                   <br /><br />
                   <div id="recaptcha-container"></div>
-                  <button onClick={signin}>Send OTP</button>
+             
+                  <button className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
                   <input type="text" placeholder={"Enter your OTP"}
                       onChange={(e) => { setotp(e.target.value) }}></input>
                   <br /><br />
-                  <button onClick={ValidateOtp}>Verify</button>
+                
+                {show2 ?<Spinner show={true} ></Spinner>:""}
+               
+                  <button className='btn btn-warning' onClick={ValidateOtp}>Verify</button>
+                 
               </div>
+
           </center>
       </div>
   );

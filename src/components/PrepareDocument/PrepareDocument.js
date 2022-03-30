@@ -323,7 +323,7 @@ const PrepareDocument = () => {
             <Row gap={1}>
               <Stack>
                 <Box padding={2}>
-                  <Text>{'Step 1'}</Text>
+                  <Text color='blue'>{'STEP 1'}</Text>
                 </Box>
                 <Box padding={2}>
                   <Button
@@ -342,7 +342,7 @@ const PrepareDocument = () => {
             <Row>
               <Stack>
                 <Box padding={2}>
-                  <Text>{'Step 2'}</Text>
+                  <Text color='blue' >{'STEP 2'}</Text>
                 </Box>
                 <Box padding={2}>
                   <SelectList
@@ -402,7 +402,7 @@ const PrepareDocument = () => {
             <Row gap={1}>
               <Stack>
                 <Box padding={2}>
-                  <Text>{'Step 3'}</Text>
+                  <Text color='blue' >{'STEP 3'}</Text>
                 </Box>
                 <Box padding={2}>
                   <Button
