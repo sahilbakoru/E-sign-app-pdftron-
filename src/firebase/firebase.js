@@ -182,9 +182,9 @@ export const searchForDocumentsSigned = async phone => {
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        const { docRef, phones, signedTime } = doc.data();
+        const { docRef, phones, signedTime,isdelete } = doc.data();
         const docId = doc.id;
-        docIds.push({ docRef, phones, signedTime, docId });
+        docIds.push({ docRef, phones, signedTime, docId,isdelete });
       });
     })
     .catch(function (error) {

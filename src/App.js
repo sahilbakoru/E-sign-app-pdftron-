@@ -11,6 +11,9 @@ import View from './components/View';
 import Header from './components/Header';
 import PasswordReset from './components/PasswordReset/PasswordReset';
 import Welcome from './components/Welcome';
+import Tosign from './components/Tosign';
+import Toview from './components/Toview';
+import Trashcan from './components/Trashcan';
 
 import { auth, generateUserDocument } from './firebase/firebase';
 import { setUser, selectUser } from './firebase/firebaseSlice';
@@ -39,6 +42,9 @@ const App = () => {
         <Preparation path="/prepareDocument" />
         <Sign path="/signDocument" />
         <View path="/viewDocument" />
+        <Tosign path="/tosign" />
+        <Toview path="/toview" />
+        <Trashcan path="/trash" />
       </Router>
     </div>
   ) : (

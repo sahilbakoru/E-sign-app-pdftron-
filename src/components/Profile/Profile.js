@@ -82,6 +82,30 @@ $(document).ready(function(){
         <Box padding={3}>
           <Link to="/" className='profileLink'><Heading size="lg">Vervebot </Heading></Link>
         </Box>
+        <button  class='btn btn-white' 
+            onClick={event => {
+              navigate(`/assignUsers`);
+            }}
+            
+          >➕  Create</button>
+        <button class='btn btn-secondary'
+            onClick={event => {
+              navigate(`/tosign`);
+            }}
+             
+          >🖋  To Sign</button>
+        <button class='btn btn-secondary'
+            onClick={event => {
+              navigate(`/toview`);
+            }}
+            
+          >  📝  To View</button>
+<button class='btn btn-secondary' style={{color:"red"}}
+            onClick={event => {
+              navigate(`/trash`);
+            }}
+           
+          >🗑 Trash</button>
       </Column>
     
 {displayName==null?

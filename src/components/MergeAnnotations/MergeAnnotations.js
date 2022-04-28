@@ -14,8 +14,9 @@ export const mergeAnnotations = async (docRef, xfdf) => {
 
     let i;
     for (i=0; i < xfdf.length; i++) {
-        console.log(xfdf[i]);
+        console.log("xfdf",xfdf[i]);
         let fdfDoc = await PDFNet.FDFDoc.createFromXFDF(xfdf[i]);
+        console.log("fdfDoc",fdfDoc);
         await doc.fdfMerge(fdfDoc);
         await doc.flattenAnnotations();
     }

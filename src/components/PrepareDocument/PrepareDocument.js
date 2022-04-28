@@ -23,7 +23,7 @@ const PrepareDocument = () => {
   const [dropPoint, setDropPoint] = useState(null);
 
   const dispatch = useDispatch();
-
+console.log("instance",instance)
   const assignees = useSelector(selectAssignees);
   const assigneesValues = assignees.map(user => {
     return { value: user.phone, label: user.name };
@@ -44,10 +44,10 @@ const PrepareDocument = () => {
       {
         path: 'webviewer',
         disabledElements: [
-          'ribbons',
-          'toggleNotesButton',
-          'searchButton',
-          'menuButton',
+          // 'ribbons',
+          // 'toggleNotesButton',
+          // 'searchButton',
+          // 'menuButton',
         ],
       },
       viewer.current,
