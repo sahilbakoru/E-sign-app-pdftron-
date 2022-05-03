@@ -32,7 +32,7 @@ import users from '../../img/users.png'
           <img class="card__thumb" src={posted} alt="" />
           <div class="card__header-text">
             <h3 class="card__title">home</h3>            
-            <span class="card__status">1 hour ago</span>
+            <span class="card__status"></span>
           </div>
         </div>
         <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
@@ -48,7 +48,7 @@ import users from '../../img/users.png'
           <img class="card__thumb" src={edit} alt="" />
           <div class="card__header-text">
             <h3 class="card__title">edit</h3>
-            <span class="card__status">3 hours ago</span>
+            <span class="card__status"></span>
           </div>
         </div>
         <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
@@ -66,7 +66,7 @@ import users from '../../img/users.png'
           <div class="card__header-text">
             <h3 class="card__title">stats</h3>
             <span class="card__tagline"></span>            
-            <span class="card__status">1 hour ago</span>
+            <span class="card__status"></span>
           </div>
         </div>
         <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
@@ -82,7 +82,7 @@ import users from '../../img/users.png'
           <img class="card__thumb" src={users} alt="" />
           <div class="card__header-text">
             <h3 class="card__title">users</h3>
-            <span class="card__status">3 hours ago</span>
+            <span class="card__status"></span>
           </div>          
         </div>
         <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
