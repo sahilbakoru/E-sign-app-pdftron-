@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
-import {firebase, generateUserDocument,firestore} from '../../firebase/firebase';
+import {firebase } from '../../firebase/firebase';
 
 
 
@@ -36,28 +36,6 @@ const SignIn = () => {
 
       let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
 
-    //   try{
-    //     const {user} = await auth.signInWithPhoneNumber( phone, verify)
-    //     generateUserDocument(user, {phone})
-    //     .then((result) => {
-    //         setfinal(result);
-    //         // alert("code sent")
-    //         console.log(phone);
-    
-    //         setshow(true)
-            
-    //     }) 
-
-         
-    //   }
-    //   catch(error){
-    //     console.log(error);
-    //   }
-    
-    
-     
- 
-
 
   auth.signInWithPhoneNumber(phone, verify).then((result) => {
    
@@ -66,9 +44,7 @@ const SignIn = () => {
           console.log(phone);
 
           setshow(true)
-        
       })
-     
        
       console.log(phone)
       setnumber("");
@@ -93,24 +69,26 @@ const ValidateOtp = () => {
 
 
   return (
+    <Container>
       <div style={{ "marginTop": "8%" }}>
-          <center><h1 style={{"color":"grey"}}>Login / SignUp</h1></center>
+          <center ><h1 style={{"color":"grey"}}>Login / SignUp</h1></center>
           <br></br>
           <center>
               <br></br>
-              <div style={{ display: !show ? "block" : "none" }}>
+              <div   style={{ display: !show ? "block" : "none" }}>
                  
                  <h6 style={{color:"blueviolet"}}>Enter Phone with country-code</h6>
-                      <input  value={phone} onChange={(e) => { 
+                      <input class="form-control" value={phone} onChange={(e) => { 
                      setnumber (e.target.value) }}
                       placeholder="Phone number" />
                   <br /><br />
+                  
                   <div id="recaptcha-container"></div>
              
                   <button className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
-                  <input type="text" placeholder={"Enter your OTP"}
+                  <input class="form-control"  type="text" placeholder={"Enter your OTP"}
                       onChange={(e) => { setotp(e.target.value) }}></input>
                   <br /><br />
                 
@@ -121,7 +99,9 @@ const ValidateOtp = () => {
               </div>
 
           </center>
+     
       </div>
+      </Container>
   );
 }
 

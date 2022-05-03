@@ -38,8 +38,6 @@ const Trash = () => {
         <Spinner show={show} accessibilityLabel="spinner" />
       ) : (
         <div>
-          
-          
           {docs.length > 0 ? (
             <Table>
               <Table.Header>

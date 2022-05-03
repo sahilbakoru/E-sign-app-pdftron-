@@ -8,6 +8,8 @@ import { resetDocToView } from './ViewDocument/ViewDocumentSlice';
 import { resetDocToSign } from './SignDocument/SignDocumentSlice';
 import { Box, Button, Container, Heading } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
+import  Widget  from './widget/Widget';
+// import Navbar from './navbar/Navbar';
 
 
 const ProfilePage = () => {
@@ -26,7 +28,11 @@ const ProfilePage = () => {
   return (
     <div>
       <Profile />
-      <Container>
+      
+      {/* <Navbar/> */}
+      <Widget/>
+
+
         {/* <Box padding={3}>
           <Heading size="md" color="orange" >{` Documents to sign ✍🏻`}  <button style={{"marginLeft":"40%"}} className='btn btn-primary ' onClick={()=>setShow(!show)} >Hide / Show</button></Heading>
         </Box> */}
@@ -64,7 +70,7 @@ const ProfilePage = () => {
 :null
      } */}
        
-      </Container>
+     
     </div>
   );
 };

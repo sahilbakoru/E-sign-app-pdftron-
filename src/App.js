@@ -28,8 +28,8 @@ const App = () => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const user = await generateUserDocument(userAuth);
-        const { uid, displayName, phone, photoURL } = user;
-        dispatch(setUser({ uid, displayName, phone, photoURL }));
+        const { uid, displayName, phone, photoURL,ispaid } = user;
+        dispatch(setUser({ uid, displayName, phone, photoURL,ispaid }));
       }
     });
   }, [dispatch]);
@@ -38,7 +38,7 @@ const App = () => {
     <div>
       <Router>
         <Welcome path="/" />
-        <AssignUsers path="/assignUsers" />
+       <AssignUsers path="/assignUsers" />
         <Preparation path="/prepareDocument" />
         <Sign path="/signDocument" />
         <View path="/viewDocument" />

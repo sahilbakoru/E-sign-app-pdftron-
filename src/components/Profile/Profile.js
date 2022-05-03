@@ -16,35 +16,39 @@ import { selectUser, setUser } from '../../firebase/firebaseSlice';
 import { resetSignee } from '../Assign/AssignSlice';
 import { navigate, Link } from '@reach/router';
 import { Spinner } from 'gestalt';
+import Navbar from '../navbar/Navbar';
 import './Profile.css';
-
+  import  download  from '../../img/download.png';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const { displayName, photoURL, phone } = user;
+   let { displayName, photoURL, phone,ispaid } = user;
   const [newname, setName2] = useState()
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
   console.log("all Users",users )
+ 
 
 
   console.log("user",user)
 
+  const alert2= ()=>{
+    alert("You have to pay to access this feature")
+  }
+
   const updateName =  async( uid,doc) => {
     setshow2(true)
-   await firestore.collection("users").doc(user.uid).update({displayName:newname});
-   
+   await firestore.collection("users").doc(user.uid).update({displayName:newname.toLowerCase()});
    document.location.reload()
   };
-
-
+ 
   useEffect((e) => { 
    
     firestore.collection('users').onSnapshot(snapshot => {
      
       setUsers(snapshot.docs.map(doc => ({
-        // id:doc.id,
+        phone:doc.data().phone,
         displayName:doc.data().displayName,
       })))
     })
@@ -61,6 +65,7 @@ let exist=true
  
 for (var i = 0; i < users.length; i++) {
     console.log(users[i]);
+  
     if (users[i].displayName===newname) {
       exist=true
       break;
@@ -77,20 +82,25 @@ $(document).ready(function(){
 
 
   return (
-    <Box display="flex" direction="row" paddingY={2} color={'lightGray'}>
+    <div>
+    <Box display="flex" direction="row" paddingY={2} color={'white'} >
       <Column span={9}>
-        <Box padding={3}>
-          <Link to="/" className='profileLink'><Heading size="lg">Vervebot </Heading></Link>
+        <Box padding={0.5}>
+          <Link to="/" className='profileLink'><img style={{width:"17rem",marginLeft:"2rem"}} src={download}></img></Link> 
         </Box>
-        <button  class='btn btn-white' 
+        
+
+     
+
+       {/* {user.ispaid===1?<button onClick={alert2}> pay to send</button>:<button  class='btn btn-white' 
             onClick={event => {
               navigate(`/assignUsers`);
             }}
-            
-          >➕  Create</button>
+      >➕ Create</button>   }
         <button class='btn btn-secondary'
             onClick={event => {
               navigate(`/tosign`);
+              
             }}
              
           >🖋  To Sign</button>
@@ -100,13 +110,17 @@ $(document).ready(function(){
             }}
             
           >  📝  To View</button>
+
+
 <button class='btn btn-secondary' style={{color:"red"}}
             onClick={event => {
               navigate(`/trash`);
             }}
            
-          >🗑 Trash</button>
+          >🗑 Trash   </button> */}
+         
       </Column>
+      
     
 {displayName==null?
 
@@ -165,28 +179,14 @@ $(document).ready(function(){
           <Row>
   
             <Stack>
-         
-              <Text>{phone}</Text>
+              {/* <Text>{phone}</Text> */}
             </Stack>
 
+ 
 
-           
-&nbsp;
-&nbsp; 
-<br></br>
-            <Stack>
-       
-              <Text>{displayName}</Text>
-            </Stack>
 
-            &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 
-            <Box padding={1}>
+            {/* <Box padding={1}>
               <Button
                 onClick={() => {
                   auth.signOut();
@@ -198,11 +198,18 @@ $(document).ready(function(){
                 text="Sign out"
                 color='red'
               />
-            </Box>
+            </Box> */}
           </Row>
         </Box>
+        <h4>☏{phone}</h4>
       </Column>
+     
     </Box>
+    
+    <Navbar/>
+   
+    </div>
+
   );
 };
 export default ProfilePage;

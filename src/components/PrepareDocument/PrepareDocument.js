@@ -12,7 +12,7 @@ import {
   SelectList,
 } from 'gestalt';
 import { selectAssignees, resetSignee } from '../Assign/AssignSlice';
-import { storage, addDocumentToSign } from '../../firebase/firebase';
+import { storage, addDocumentToSign,firestore } from '../../firebase/firebase';
 import { selectUser } from '../../firebase/firebaseSlice';
 import WebViewer from '@pdftron/webviewer';
 import 'gestalt/dist/gestalt.css';
@@ -25,6 +25,7 @@ const PrepareDocument = () => {
   const dispatch = useDispatch();
 console.log("instance",instance)
   const assignees = useSelector(selectAssignees);
+  const user2 =useSelector(selectUser)
   const assigneesValues = assignees.map(user => {
     return { value: user.phone, label: user.name };
   });
@@ -198,7 +199,17 @@ console.log("instance",instance)
     // refresh viewer
     await annotManager.drawAnnotationsFromList(annotsToDraw);
     await uploadForSigning();
+
+    
+     
   };
+
+  const minusOne=async(uid,doc)=>{
+   await firestore.collection("users").doc(user2.uid).update({ispaid:user2.ispaid-1});
+      console.log("pair doc is paid",user2.ispaid)
+       }
+  //  minusOne()
+
 
   const addField = (type, point = {}, name = '', value = '', flag = {}) => {
     const { docViewer, Annotations } = instance;
@@ -267,6 +278,7 @@ console.log("instance",instance)
     const blob = new Blob([arr], { type: 'application/pdf' });
     docRef.put(blob).then(function (snapshot) {
       console.log('Uploaded the blob');
+      document.location.reload()
     });
 
     // create an entry in the database
@@ -275,6 +287,7 @@ console.log("instance",instance)
     });
     await addDocumentToSign(uid, phone, referenceString, phones);
     dispatch(resetSignee());
+    minusOne()
     navigate('/');
   };
 

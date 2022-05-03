@@ -31,7 +31,7 @@ const SignedList = () => {
       const docsToView = await searchForDocumentsSigned(phone);
       setDocs(docsToView);
      };
-
+ 
   return (
     <div>
       {show ? (
@@ -66,9 +66,6 @@ const SignedList = () => {
                        </div>}
                  
                   
-                      {/* {doc.phones.map(phone => (
-                        <Text key={phone}>{phone}</Text>
-                      ))} */}
                     </Table.Cell>
                     <Table.Cell>
                   

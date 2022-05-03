@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { navigate } from '@reach/router';
-import { Box, Column, Heading, Row, Stack, Button } from 'gestalt';
+import { Box, Column, Heading, Row, Stack, Button,Spinner } from 'gestalt';
 import { selectDocToSign } from './SignDocumentSlice';
 import { storage, updateDocumentToSign } from '../../firebase/firebase';
 import { selectUser } from '../../firebase/firebaseSlice';
@@ -12,6 +12,7 @@ import './SignDocument.css';
 const SignDocument = () => {
   const [annotManager, setAnnotatManager] = useState(null);
   const [annotPosition, setAnnotPosition] = useState(0);
+  const [show, setShow] = useState(true);
 
   const doc = useSelector(selectDocToSign);
   const user = useSelector(selectUser);
@@ -50,6 +51,11 @@ const SignDocument = () => {
       const storageRef = storage.ref();
       const URL = await storageRef.child(docRef).getDownloadURL();
       docViewer.loadDocument(URL);
+      console.log("url",URL);
+      console.log("doc",doc);
+      console.log("doc1",docViewer.loadDocument(URL));
+
+    
 
       const normalStyles = (widget) => {
         if (widget instanceof Annotations.TextWidgetAnnotation) {
@@ -76,6 +82,13 @@ const SignDocument = () => {
             }
           });
         }
+        // console.log("annotations",annotations);
+        console.log(" action", action);
+        // console.log("",annotations);
+ if(action==="add"){
+  setShow(false)
+}
+
       });
     });
   }, [docRef, phone]);
@@ -108,6 +121,7 @@ const SignDocument = () => {
 
   return (
     <div className={'prepareDocument'}>
+      <Spinner show={show} accessibilityLabel="spinner" />
       <Box display="flex" direction="row" flex="grow">
         <Column span={2}>
           <Box padding={3}>

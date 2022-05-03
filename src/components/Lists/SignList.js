@@ -23,9 +23,9 @@ const SignList = () => {
       setShow(false);
     }
 
-    setTimeout(getDocs, 1000);
+    setTimeout(getDocs, 10);
   }, [phone]);
-
+// console.log(docs.length)
   return (
     <div>
       {show ? (
