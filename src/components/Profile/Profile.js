@@ -27,11 +27,11 @@ const ProfilePage = () => {
   const [newname, setName2] = useState()
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
-  console.log("all Users",users )
+  // console.log("all Users",users )
  
 
 
-  console.log("user",user)
+  // console.log("user",user)
 
   const alert2= ()=>{
     alert("You have to pay to access this feature")
@@ -64,7 +64,7 @@ const ProfilePage = () => {
 let exist=true
  
 for (var i = 0; i < users.length; i++) {
-    console.log(users[i]);
+    // console.log(users[i]);
   
     if (users[i].displayName===newname) {
       exist=true
@@ -201,7 +201,7 @@ $(document).ready(function(){
             </Box> */}
           </Row>
         </Box>
-        <h4>☏{phone}</h4>
+        <h4>{phone}</h4>
       </Column>
      
     </Box>

@@ -34,7 +34,6 @@ let res = {};
 docs2.forEach(function(v) {
   res[v.isdelete==="true"] = (res[v.isdelete==="true"] || 0) + 1;
 })
-console.log("res",res.false);
 
   return (
     <div>

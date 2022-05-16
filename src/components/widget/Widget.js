@@ -22,7 +22,7 @@ import users from '../../img/users.png'
      
          <ul class="cards">
   <li>
-    <a href="#" class="card">
+    <a style={{border:"1px solid black"}} href="#" class="card">
       <img src={uielement} class="card__image" alt="" />
       <div class="card__overlay">
    
@@ -40,7 +40,7 @@ import users from '../../img/users.png'
     </a>      
   </li>
   <li>
-    <a href="#" class="card">
+    <a style={{border:"1px solid black"}} href="#" class="card">
       <img src={uielement2} class="card__image" alt="" />
       <div class="card__overlay">        
         <div class="card__header">
@@ -57,7 +57,7 @@ import users from '../../img/users.png'
   </li>
   <li>
       {/* "https://i.imgur.com/oYiTqum.jpg" */}
-    <a href="" class="card">
+    <a  style={{border:"1px solid black"}} href="" class="card">
       <img src={uielement3} class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
@@ -74,7 +74,7 @@ import users from '../../img/users.png'
     </a>
   </li>
   <li>
-    <a href="" class="card">
+    <a  style={{border:"1px solid black"}} href="" class="card">
       <img src={uielement5} class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">

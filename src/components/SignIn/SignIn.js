@@ -70,26 +70,29 @@ const ValidateOtp = () => {
 
   return (
     <Container>
-      <div style={{ "marginTop": "8%" }}>
-          <center ><h1 style={{"color":"grey"}}>Login / SignUp</h1></center>
-          <br></br>
+      <div  class="login_animate" style={{ "marginTop": "8%" , padding:"8rem",borderRadius:"2rem",  boxShadow: "#00000014 0px -1px 27px 16px"}}>
+          <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"200",paddingBottom:"4rem"}}>login</h1></center>
+      
           <center>
               <br></br>
               <div   style={{ display: !show ? "block" : "none" }}>
                  
-                 <h6 style={{color:"blueviolet"}}>Enter Phone with country-code</h6>
-                      <input class="form-control" value={phone} onChange={(e) => { 
-                     setnumber (e.target.value) }}
+                 <h5 style={{color:"blueviolet"}}>Enter Phone with country-code</h5>
+                      <TextField class="form-control"  
+                       onChange={event => setnumber(event.value)}
+                     value={phone}
                       placeholder="Phone number" />
                   <br /><br />
                   
                   <div id="recaptcha-container"></div>
              
-                  <button className='btn btn-primary' onClick={signin}>Send OTP</button>
+                  <button  style={{borderRadius:"10px"}}className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
-                  <input class="form-control"  type="text" placeholder={"Enter your OTP"}
-                      onChange={(e) => { setotp(e.target.value) }}></input>
+                  <TextField class="form-control"  type="text" placeholder={"Enter your OTP"}
+                      onChange={event => setotp(event.value)}
+                      value={otp}
+                      />
                   <br /><br />
                 
                 {show2 ?<Spinner show={true} ></Spinner>:""}

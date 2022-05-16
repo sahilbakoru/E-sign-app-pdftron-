@@ -1,3 +1,39 @@
 .App {
   text-align: center;
 }
+.login_animate {
+  background: linear-gradient(194deg, #befbe8, #c4ff9d,#ff9df4);
+  background-size: 400% 400%;
+
+  -webkit-animation: login_animate 10s ease infinite;
+  -moz-animation: login_animate 10s ease infinite;
+  -o-animation: login_animate 10s ease infinite;
+  animation: login_animate 8s ease infinite;
+}
+
+@-webkit-keyframes login_animate {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+@-moz-keyframes login_animate {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+@-o-keyframes login_animate {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+@keyframes login_animate {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}
+.logintext{
+  color: black;
+  /* background: -webkit-linear-gradient(245deg, rgba(0,255,246,0.8113620448179272) 3%, rgba(255,41,41,0.7469362745098039) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}

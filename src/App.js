@@ -14,7 +14,7 @@ import Welcome from './components/Welcome';
 import Tosign from './components/Tosign';
 import Toview from './components/Toview';
 import Trashcan from './components/Trashcan';
-
+import Allhome from './Allhome';
 import { auth, generateUserDocument } from './firebase/firebase';
 import { setUser, selectUser } from './firebase/firebaseSlice';
 
@@ -37,6 +37,7 @@ const App = () => {
   return user ? (
     <div>
       <Router>
+      <Allhome path="/home" />
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />
         <Preparation path="/prepareDocument" />

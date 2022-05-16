@@ -77,7 +77,7 @@ let exist="something"
      break
     }
     else{
-   console.log("not exist")
+  //  console.log("not exist")
     }
 
 }
@@ -98,8 +98,8 @@ setTimeout(() => {setingphone();}, 100)
     }
   };
 
-  console.log("phone",phone)
-  console.log("displayName",displayName)
+  // console.log("phone",phone)
+  // console.log("displayName",displayName)
 
 
   return (

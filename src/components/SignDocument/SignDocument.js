@@ -85,7 +85,7 @@ const SignDocument = () => {
         // console.log("annotations",annotations);
         console.log(" action", action);
         // console.log("",annotations);
- if(action==="add"){
+ if(action==="add"||action===!null){
   setShow(false)
 }
 

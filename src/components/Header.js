@@ -6,7 +6,7 @@ const Header = () =>  {
     return (<Box display="flex" direction="row" paddingY={2} color={'lightGray'}>
     <Column span={10}>
       <Box padding={3}>
-        <Heading size="lg">Vervebot</Heading>
+        <Heading size="lg">ipostbox</Heading>
       </Box>
     </Column>
     </Box>);
