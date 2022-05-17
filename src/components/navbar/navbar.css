@@ -4,9 +4,9 @@ nav {
     justify-content: space-between; /* 2 */
     padding: 1rem 2rem; /* 3 */
     background: #252525; /* 4 */
-    background: linear-gradient(
+    /* background: linear-gradient(
       to right, #ff5395, #fc9651,
-       #fb57fb, #70bef9);
+       #fb57fb, #70bef9); */
 
   }
  

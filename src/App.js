@@ -37,7 +37,6 @@ const App = () => {
   return user ? (
     <div>
       <Router>
-      <Allhome path="/home" />
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />
         <Preparation path="/prepareDocument" />
@@ -52,7 +51,8 @@ const App = () => {
     <div>
       <Header />
       <Router>
-        <SignIn path="/" />
+       <Allhome path="/" />
+        <SignIn path="/SignIn" />
         <SignUp path="signUp" />
         <PasswordReset path="passwordReset" />
       </Router>

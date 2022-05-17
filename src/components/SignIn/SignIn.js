@@ -5,6 +5,7 @@ import {firebase } from '../../firebase/firebase';
 
 
 
+
 import {
   Box,
   Button,
@@ -56,7 +57,7 @@ const ValidateOtp = () => {
     if (otp === null || final === null)
         return;
     final.confirm(otp).then((result) => {
-        // success
+      navigate(`/`)
        
     }).catch((err) => {
         alert("Wrong code");

@@ -1,6 +1,8 @@
+import { navigate } from '@reach/router';
+
 export const Navigation = (props) => {
   return (
-    <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
+    <nav style={{background:"grey"}} id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
         <div className='navbar-header'>
           <button
@@ -56,6 +58,13 @@ export const Navigation = (props) => {
             <li>
               <a style={{color:"white"}} href='#contact' className='page-scroll'>
                 Contact
+              </a>
+            </li>
+            <li onClick={event => {
+              navigate(`/SignIn`);
+            }} >
+              <a style={{color:"aqua"}} href='#' className='page-scroll' >
+               Login
               </a>
             </li>
           </ul>
