@@ -39,7 +39,7 @@ docs2.forEach(function(v) {
     <div>
 
        <nav>
-  <h3 style={{color:"white"}}><i class="fi fi-bs-user"></i> {displayName}'s  Dashboard</h3>
+  <h3 style={{color:"white"}}><i class="fa fa-user"></i> {displayName}'s  Dashboard</h3>
   <ul>
 
 {displayName===null?"":
@@ -53,7 +53,7 @@ docs2.forEach(function(v) {
     <li onClick={event => {
               navigate(`/tosign`);
             }}
-    ><a href="#" style={{color:"white"}}> <i class="fi fi-bs-download"></i>  Inbox</a>
+    ><a href="#" style={{color:"white"}}> <i class="fa fa-inbox"></i>  Inbox</a>
     &nbsp;
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
     {docs.length}
@@ -77,7 +77,7 @@ docs2.forEach(function(v) {
     <li   onClick={event => {
               navigate(`/trash`);
             }}
-    ><a href="#" style={{color:"white"}}><i class="fi fi-bs-trash"></i> Trash </a></li>
+    ><a href="#" style={{color:"white"}}><i class="fa fa-trash"></i> Trash </a></li>
     
     <li onClick={() => {
                   auth.signOut();
@@ -85,7 +85,7 @@ docs2.forEach(function(v) {
                   dispatch(resetSignee())
                   navigate('/');
                 }}
-    ><a href="#" style={{color:"#fc5603"}}> <i class="fi fi-bs-power"></i> Sign out</a></li>
+    ><a href="#" style={{color:"#fc5603"}}> <i class="fa fa-power-off"></i> Sign out</a></li>
 
   </ul>
 </nav>

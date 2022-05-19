@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase } from '../../firebase/firebase';
+import sidegif from '../../img/login-bg.gif'
 
 
 
@@ -70,15 +71,16 @@ const ValidateOtp = () => {
 
 
   return (
-    <Container>
-      <div  class="login_animate" style={{ "marginTop": "8%" , padding:"8rem",borderRadius:"2rem",  boxShadow: "#00000014 0px -1px 27px 16px"}}>
-          <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"200",paddingBottom:"4rem"}}>login</h1></center>
-      
+<div >
+<div class="login-float-child" >
+      <div  class="login_animate" style={{ paddingBottom:"28rem",paddingTop:"25rem"}}>
+          <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
+     
           <center>
               <br></br>
               <div   style={{ display: !show ? "block" : "none" }}>
                  
-                 <h5 style={{color:"blueviolet"}}>Enter Phone with country-code</h5>
+                 <h5 style={{color:"white"}}>Enter Phone with country-code</h5>
                       <TextField class="form-control"  
                        onChange={event => setnumber(event.value)}
                      value={phone}
@@ -105,7 +107,9 @@ const ValidateOtp = () => {
           </center>
      
       </div>
-      </Container>
+      </div>
+        <img class="login-float-child" height={800} width={200} src={sidegif} />
+      </div>
   );
 }
 
