@@ -3,6 +3,7 @@ import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase } from '../../firebase/firebase';
 import sidegif from '../../img/login-bg.gif'
+import sidegif2 from '../../img/back2.gif'
 
 
 
@@ -73,7 +74,7 @@ const ValidateOtp = () => {
   return (
 <div >
 <div class="login-float-child" >
-      <div  class="login_animate" style={{ paddingBottom:"28rem",paddingTop:"25rem"}}>
+      <div  class="login_animate" style={{ paddingBottom:"40rem",paddingTop:"25rem"}}>
           <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
      
           <center>
@@ -81,26 +82,29 @@ const ValidateOtp = () => {
               <div   style={{ display: !show ? "block" : "none" }}>
                  
                  <h5 style={{color:"white"}}>Enter Phone with country-code</h5>
-                      <TextField class="form-control"  
-                       onChange={event => setnumber(event.value)}
+                      <input class="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                       onChange={(e)=> setnumber(e.target.value)}
                      value={phone}
                       placeholder="Phone number" />
                   <br /><br />
                   
                   <div id="recaptcha-container"></div>
              
-                  <button  style={{borderRadius:"10px"}}className='btn btn-primary' onClick={signin}>Send OTP</button>
+                  <button  style={{  background:"linear-gradient(245deg, rgba(11,116,255,1) 0%, rgba(130,242,182,1) 100%)"}}className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
-                  <TextField class="form-control"  type="text" placeholder={"Enter your OTP"}
-                      onChange={event => setotp(event.value)}
+                  <input class="form-control" style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                   type="text" placeholder={"Enter your OTP"}
+                      onChange={e => setotp(e.target.value)}
                       value={otp}
                       />
                   <br /><br />
                 
                 {show2 ?<Spinner show={true} ></Spinner>:""}
                
-                  <button className='btn btn-warning' onClick={ValidateOtp}>Verify</button>
+                  <button className='btn btn-primary' 
+                  style={{  background:"linear-gradient(245deg, rgba(130,242,182,1) 25%, rgba(11,116,255,1) 100%)",width:"100px"}}
+                  onClick={ValidateOtp}>Verify</button>
                  
               </div>
 
@@ -108,7 +112,7 @@ const ValidateOtp = () => {
      
       </div>
       </div>
-        <img class="login-float-child" height={800} width={200} src={sidegif} />
+        <img class="login-float-child" height={850} width={200} src={sidegif2} />
       </div>
   );
 }

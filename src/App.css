@@ -16,26 +16,6 @@
   background: url(.././src/img/login-bg.gif) center 
 }  
 
-@-webkit-keyframes login_animate {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
-}
-@-moz-keyframes login_animate {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
-}
-@-o-keyframes login_animate {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
-}
-@keyframes login_animate {
-  0%{background-position:51% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:51% 0%}
-}
 .logintext{
   color: rgb(255, 255, 255);
   /* background: -webkit-linear-gradient(245deg, rgba(0,255,246,0.8113620448179272) 3%, rgba(255,41,41,0.7469362745098039) 100%);

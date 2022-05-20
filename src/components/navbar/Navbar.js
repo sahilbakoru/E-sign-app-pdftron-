@@ -41,14 +41,17 @@ docs2.forEach(function(v) {
        <nav>
   <h3 style={{color:"white"}}><i class="fa fa-user"></i> {displayName}'s  Dashboard</h3>
   <ul>
-
-{displayName===null?"":
+    {displayName===null?"":
+<div>
+{ispaid<2?"":
     <li  onClick={event => {
               navigate(`/assignUsers`);
             }}
     ><button class="btn btn-primary"><a href="#" style={{color:"#b5f9ff"}}><i class="fi fi-rr-add"></i> Create</a></button></li>
 
           }
+</div>
+}
 
     <li onClick={event => {
               navigate(`/tosign`);
@@ -65,7 +68,7 @@ docs2.forEach(function(v) {
     <li  onClick={event => {
               navigate(`/toview`);
             }}
-    ><a href="#" style={{color:"white"}}><i class="fi fi-rr-edit"></i> Review</a>
+    ><a href="#" style={{color:"white"}}><i class="fa fa-edit"></i> Review</a>
         &nbsp;
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
     {res.false}

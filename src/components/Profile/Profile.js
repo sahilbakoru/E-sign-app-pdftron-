@@ -88,36 +88,6 @@ $(document).ready(function(){
         <Box padding={0.5}>
           <Link to="/" className='profileLink'><img style={{width:"17rem",marginLeft:"2rem"}} src={download}></img></Link> 
         </Box>
-        
-
-     
-
-       {/* {user.ispaid===1?<button onClick={alert2}> pay to send</button>:<button  class='btn btn-white' 
-            onClick={event => {
-              navigate(`/assignUsers`);
-            }}
-      >➕ Create</button>   }
-        <button class='btn btn-secondary'
-            onClick={event => {
-              navigate(`/tosign`);
-              
-            }}
-             
-          >🖋  To Sign</button>
-        <button class='btn btn-secondary'
-            onClick={event => {
-              navigate(`/toview`);
-            }}
-            
-          >  📝  To View</button>
-
-
-<button class='btn btn-secondary' style={{color:"red"}}
-            onClick={event => {
-              navigate(`/trash`);
-            }}
-           
-          >🗑 Trash   </button> */}
          
       </Column>
       
@@ -148,9 +118,6 @@ $(document).ready(function(){
 <div>
 <input class="form-control" placeholder='enter new username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
 <br></br>
-{/* <button class="btn btn-primary" text='add username' onClick={() => {
-      updateName(displayName);
-    }} >Add </button> */}
 </div>:
             ""
 
@@ -181,24 +148,6 @@ $(document).ready(function(){
             <Stack>
               {/* <Text>{phone}</Text> */}
             </Stack>
-
- 
-
-
-
-            {/* <Box padding={1}>
-              <Button
-                onClick={() => {
-                  auth.signOut();
-                  dispatch(setUser(null));
-                  dispatch(resetSignee())
-                  navigate('/');
-                }}
-                accessibilityLabel="Sign out of your account"
-                text="Sign out"
-                color='red'
-              />
-            </Box> */}
           </Row>
         </Box>
         <h4>{phone}</h4>
