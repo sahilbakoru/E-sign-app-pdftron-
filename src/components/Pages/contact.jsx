@@ -1,37 +1,31 @@
-import { useState } from 'react'
-// import emailjs from 'emailjs-com'
+import { useState,useRef } from 'react'
+import emailjs from '@emailjs/browser';
+import { navigate } from '@reach/router';
 
-const initialState = {
-  name: '',
-  email: '',
-  message: '',
-}
+
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState)
+const [send,setsend] = useState(false)
+  const form = useRef();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setState((prevState) => ({ ...prevState, [name]: value }))
-  }
-  const clearState = () => setState({ ...initialState })
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(name, email, message)
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-          clearState()
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
-  }
+    emailjs.sendForm('service_sqlagp8', 'template_vankz85', form.current, 'y37TpNVFos_t9LQz-')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+        });
+      e.target.reset();
+setsend(true)
+const tothetop=()=>{
+  window.scrollTo(0,0)
+}
+
+ setInterval(tothetop,2000)
+      };
+
+
   return (
     <div>
       <div id='contact'>
@@ -45,36 +39,23 @@ export const Contact = (props) => {
                   get back to you as soon as possible.
                 </p>
               </div>
-              <form name='sentMessage' validate onSubmit={handleSubmit}>
+{send?<div class="alert alert-success" role="alert">
+  Message send successfully 
+</div>
+:""}
+              <form ref={form} onSubmit={sendEmail}>
+      <label style={{fontSize:"2rem"}}>Message</label>
+      <textarea name="message" 
+      d='message'
+      className='form-control'
+      rows='4'
+      placeholder='Type something here...'
+      />
+    
+      <input type="submit" value="Send" className='btn btn-custom btn-lg' />
+    </form>
+              {/* <form name='sentMessage' validate onSubmit={handleSubmit}>
                 <div className='row'>
-                  <div className='col-md-6'>
-                    <div className='form-group'>
-                      <input
-                        type='text'
-                        id='name'
-                        name='name'
-                        className='form-control'
-                        placeholder='Name'
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className='help-block text-danger'></p>
-                    </div>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='form-group'>
-                      <input
-                        type='email'
-                        id='email'
-                        name='email'
-                        className='form-control'
-                        placeholder='Email'
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className='help-block text-danger'></p>
-                    </div>
-                  </div>
                 </div>
                 <div className='form-group'>
                   <textarea
@@ -92,7 +73,7 @@ export const Contact = (props) => {
                 <button type='submit' className='btn btn-custom btn-lg'>
                   Send Message
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
           <div className='col-md-3 col-md-offset-1 contact-info'>

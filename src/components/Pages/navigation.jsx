@@ -2,7 +2,7 @@ import { navigate } from '@reach/router';
 
 export const Navigation = (props) => {
   return (
-    <nav style={{background:"grey"}} id='menu' className='navbar navbar-default navbar-fixed-top'>
+    <nav style={{background:"black"}} id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
         <div className='navbar-header'>
           <button
