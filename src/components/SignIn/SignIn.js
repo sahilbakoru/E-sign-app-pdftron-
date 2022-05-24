@@ -31,8 +31,6 @@ const SignIn = () => {
 
  
  
- 
-    
   const signin =  () => {
 
       if (phone === "" || phone.length < 10) return;
