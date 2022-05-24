@@ -18,7 +18,7 @@ import { navigate, Link } from '@reach/router';
 import { Spinner } from 'gestalt';
 import Navbar from '../navbar/Navbar';
 import './Profile.css';
-  import  download  from '../../img/download.png';
+  import  download  from '../../img/newlogo.png';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ const ProfilePage = () => {
   const [newname, setName2] = useState()
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
+  const [mshow, setmshow] = useState(false);
   // console.log("all Users",users )
  
 
@@ -83,13 +84,10 @@ $(document).ready(function(){
 
   return (
     <div>
-    <Box display="flex" direction="row" paddingY={2} color={'white'} >
-      <Column span={9}>
-        <Box padding={0.5}>
-          <Link to="/" className='profileLink'><img style={{width:"17rem",marginLeft:"2rem"}} src={download}></img></Link> 
-        </Box>
+ 
+
          
-      </Column>
+
       
     
 {displayName==null?
@@ -139,21 +137,9 @@ $(document).ready(function(){
 }
 
 
-      <Column span={3}>
   
-        <Box padding={1}>
-       
-          <Row>
-  
-            <Stack>
-              {/* <Text>{phone}</Text> */}
-            </Stack>
-          </Row>
-        </Box>
-        <h4>{phone}</h4>
-      </Column>
      
-    </Box>
+
     
     <Navbar/>
    

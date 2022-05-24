@@ -1,62 +1,42 @@
 import React from 'react'
 import './widget.css'
-import uielement from '../../img/uielement.jpeg'
-import uielement2 from '../../img/uielement2.jpeg'
-import uielement3 from '../../img/uielement3.jpeg'
-import uielement4 from '../../img/uielement4.jpeg'
-import uielement5 from '../../img/uielement5.jpeg'
-import posted from '../../img/home-location.png'
-import rocket from '../../img/rocket.png'
-import stats from '../../img/stats.png'
-import edit from '../../img/edit.png'
-import users from '../../img/users.png'
+
+import PricingPage from '../Pricing/PricingPage';
+import { firestore } from '../../firebase/firebase';
+import { useSelector} from 'react-redux';
+import { selectUser, setUser } from '../../firebase/firebaseSlice';
 
 
 
 
 
  const Widget = () => {
+  const user = useSelector(selectUser);
+  let { ispaid,displayName,phone} = user;
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+
+
   return (
       <div>
-         
-     
          <ul class="cards">
-  <li>
-    <a style={{border:"1px solid black"}} href="#" class="card">
-      <img src={uielement} class="card__image" alt="" />
-      <div class="card__overlay">
-   
-        <div class="card__header">
-          <svg class="card__arc" xmlns=""><path /></svg>  
-                          
-          <img class="card__thumb" src={posted} alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">home</h3>            
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-      </div>
-    </a>      
+           <center>
+             
+  <li style={{ padding:"3rem", border:"1px solid black", borderRadius:"3rem",background:"linear-gradient(to right, #12c2e9, #c471ed, #f64f59)"}} >
+  <h2  style={{color:"wheat"}} >  <i class="fa fa-user"></i> {displayName}'s Dashboard </h2>
+  <br/>
+  <h2  >  <i class="fa fa-files-o"></i> balance : {ispaid-1} </h2>
+
+  <h3 > Phone : {phone} </h3>
   </li>
+  </center>
   <li>
-    <a style={{border:"1px solid black"}} href="#" class="card">
-      <img src={uielement2} class="card__image" alt="" />
-      <div class="card__overlay">        
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-          <img class="card__thumb" src={edit} alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">edit</h3>
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-      </div>
-    </a>
+  <PricingPage/>
   </li>
-  <li>
-      {/* "https://i.imgur.com/oYiTqum.jpg" */}
+  {/* <li>
+
     <a  style={{border:"1px solid black"}} href="" class="card">
       <img src={uielement3} class="card__image" alt="" />
       <div class="card__overlay">
@@ -73,22 +53,7 @@ import users from '../../img/users.png'
       </div>
     </a>
   </li>
-  <li>
-    <a  style={{border:"1px solid black"}} href="" class="card">
-      <img src={uielement5} class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-          <img class="card__thumb" src={users} alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">users</h3>
-            <span class="card__status"></span>
-          </div>          
-        </div>
-        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-      </div>
-    </a>
-  </li>    
+     */}
 </ul>
 
 </div>

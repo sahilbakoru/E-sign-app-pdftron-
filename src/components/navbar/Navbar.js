@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { navigate } from '@reach/router';
+import { navigate,Link } from '@reach/router';
 import { auth,firestore,searchForDocumentToSign,searchForDocumentsSigned } from '../../firebase/firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, setUser } from '../../firebase/firebaseSlice';
 import { resetSignee } from '../Assign/AssignSlice';
 import './navbar.css'
+import  download  from '../../img/newlogo.png';
 
 
 
@@ -39,7 +40,7 @@ docs2.forEach(function(v) {
     <div>
 
        <nav>
-  <h3 style={{color:"white"}}><i class="fa fa-user"></i> {displayName}'s  Dashboard</h3>
+       <Link to="/" className='profileLink'><img style={{width:"17rem"}} src={download}></img></Link> 
   <ul>
     {displayName===null?"":
 <div>
@@ -47,7 +48,7 @@ docs2.forEach(function(v) {
     <li  onClick={event => {
               navigate(`/assignUsers`);
             }}
-    ><button class="btn btn-primary"><a href="#" style={{color:"#b5f9ff"}}><i class="fi fi-rr-add"></i> Create</a></button></li>
+    ><button class="btn "><a href="#" style={{color:"black"}}><i class="fi fi-rr-add"></i> Create</a></button></li>
 
           }
 </div>

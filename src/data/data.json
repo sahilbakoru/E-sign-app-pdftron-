@@ -122,12 +122,13 @@
     }
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
-    "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "address": "Dublin 2, Ireland",
+    "phone": "+353838804056",
+    "email": "nesime.dogan@ipostbox.cloud",
+    "facebook": "https://m.facebook.com/ipostbox.cloud/",
+    "twitter": "https://twitter.com/iPostBox1",
+    "instagram": "https://www.instagram.com/ipostbox/",
+    "linkedin": "https://www.linkedin.com/company/ipostbox/"
   },
   "Features": [
     {

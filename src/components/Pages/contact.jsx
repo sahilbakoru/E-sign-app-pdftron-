@@ -118,8 +118,13 @@ const tothetop=()=>{
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.youtube : '/'}>
-                      <i className='fa fa-youtube'></i>
+                    <a href={props.data ? props.data.instagram : '/'}>
+                      <i className='fa fa-instagram'></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href={props.data ? props.data.linkedin : '/'}>
+                      <i className='fa fa-linkedin'></i>
                     </a>
                   </li>
                 </ul>
@@ -130,12 +135,12 @@ const tothetop=()=>{
       </div>
        <div id='footer'>
         <div className='container text-center'>
-          {/* <p>
-            &copy; 2020 Issaaf Kattan React Land Page Template. Design by{' '}
-            <a href='http://www.templatewire.com' rel='nofollow'>
-              TemplateWire
+          <p>
+            &copy; Vervebot , Design by{' '}
+            <a href='http://www.vervebot.io' rel='nofollow'>
+              vervebot
             </a>
-          </p> */}
+          </p>
         </div>
       </div> 
     </div>

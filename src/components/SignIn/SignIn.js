@@ -4,6 +4,10 @@ import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase } from '../../firebase/firebase';
 import sidegif from '../../img/login-bg.gif'
 import sidegif2 from '../../img/back2.gif'
+import colors from '../../img/colors.gif'
+import wave from '../../img/curves.gif'
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 
 
@@ -23,7 +27,7 @@ import { Spinner } from 'gestalt';
 
 const SignIn = () => {
   // Inputs
-  const [phone, setnumber] = useState("");
+  const [phone, setnumber] = useState()
   const [otp, setotp] = useState('');
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState('');
@@ -48,7 +52,9 @@ const SignIn = () => {
       })
        
       console.log(phone)
-      setnumber("");
+  
+  
+
       
   }
   // Validate OTP
@@ -68,6 +74,8 @@ const ValidateOtp = () => {
  
 
 
+  console.log("phone",phone)
+
 
   return (
 <div >
@@ -80,10 +88,16 @@ const ValidateOtp = () => {
               <div   style={{ display: !show ? "block" : "none" }}>
                  
                  <h5 style={{color:"white"}}>Enter Phone with country-code</h5>
-                      <input class="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                 <PhoneInput
+                 style={{width:"50%",height:"2rem" , borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}}
+                 defaultCountry="RU"
+      placeholder="Enter phone number"
+      value={phone}
+      onChange={setnumber}/>
+                      {/* <input class="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
                        onChange={(e)=> setnumber(e.target.value)}
                      value={phone}
-                      placeholder="Phone number" />
+                      placeholder="Phone number" /> */}
                   <br /><br />
                   
                   <div id="recaptcha-container"></div>
