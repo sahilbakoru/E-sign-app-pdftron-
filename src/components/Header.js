@@ -6,6 +6,7 @@ const Header = () =>  {
     return (<Box display="flex" direction="row" paddingY={2} color={'lightGray'}>
     <Column span={10}>
       
+      
         {/* <Heading size="lg">ipostbox</Heading> */}
       
     </Column>
