@@ -48,7 +48,7 @@ docs2.forEach(function(v) {
     <li  onClick={event => {
               navigate(`/assignUsers`);
             }}
-    ><button class="btn "><a href="#" style={{color:"black"}}><i class="fi fi-rr-add"></i> Create</a></button></li>
+    ><button class="btn "><a href="#" style={{color:"black"}}><i  aria-hidden="true" class="fa fa-plus-circle fa-lg"></i> Create</a></button></li>
 
           }
 </div>

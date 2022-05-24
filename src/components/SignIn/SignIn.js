@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase } from '../../firebase/firebase';
-import sidegif from '../../img/login-bg.gif'
+
 import sidegif2 from '../../img/back2.gif'
-import colors from '../../img/colors.gif'
-import wave from '../../img/curves.gif'
+
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
