@@ -9,16 +9,32 @@ const PricingPage = () => {
     const user2 =useSelector(selectUser)
     let { ispaid } = user;
 
-    const plusten=async(uid,doc)=>{
-        await firestore.collection("users").doc(user2.uid).update({ispaid:user2.ispaid+10});
-           console.log("pair doc is paid",user2.ispaid)
-           document.location.reload()
+    const plusten=()=>{
+       fetch("http://localhost:3001/create-checkout-session",{
+         method:'post',
+         headers:{
+           'content-Type':'application/json',
+         },
+          body:JSON.stringify({
+            items:[
+              {id:1, quantity:1}
+            ]
+          })
+       }).then(res=>{
+         if(res.ok) return res.json()
+         return res.json().then( json => Promise.reject(json))
+       }).then(({ url }) => {
+         console.log(url)
+         window.location = url
+       }).catch(e=>{
+         console.error(e.error)
+       })
             }
 
             const plusOne=async(uid,doc)=>{
-              await firestore.collection("users").doc(user2.uid).update({ispaid:user2.ispaid+1});
-                 console.log("pair doc is paid",user2.ispaid)
-                 document.location.reload()
+              // await firestore.collection("users").doc(user2.uid).update({ispaid:user2.ispaid+1});
+              //    console.log("pair doc is paid",user2.ispaid)
+              //    document.location.reload()
                   }
  
 
