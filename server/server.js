@@ -19,6 +19,11 @@ const storeItems = new Map([
     [2,{priceInCents:100, name:"One Letter"}]
 ])
 
+app.get("/sucr",(req,res)=>{
+    res.send("ok")
+    console.log("ok")
+})
+
 app.post("/create-checkout-session", async (req, res) => {
     try {
       const session = await stripe.checkout.sessions.create({
@@ -36,15 +41,22 @@ app.post("/create-checkout-session", async (req, res) => {
             },
             quantity: item.quantity,
           }
+          
         }),
-        success_url: `${process.env.CLIENT_URL}/`,
+        
+        success_url: `${process.env.CLIENT_URL}/sucsess`,
         cancel_url: `${process.env.CLIENT_URL}/`,
       })
-      res.json({ url: session.url })
+      if(session.payment_status==='unpaid'){
+    console.log("unpiad")
+    }
+     res.json({ url: session.url})
+      console.log("mystatus",session)
     } catch (e) {
       res.status(500).json({ error: e.message })
     }
   })
+
 
 console .log("server is on port 3001")
 app.listen(3001)

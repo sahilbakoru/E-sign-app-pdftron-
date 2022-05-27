@@ -45,7 +45,7 @@ console.log("ispaid",ispaid)
 
       <About data={landingPageData.About} />
       <Features data={landingPageData.Features} /> 
-      <Services data={landingPageData.Services} />
+      {/* <Services data={landingPageData.Services} /> */}
       <Contact data={landingPageData.Contact} />
     </div>
   );

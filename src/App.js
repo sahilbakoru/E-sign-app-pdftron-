@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import Sucsess from './components/Pricing/Sucsess';
+import Cancel from './components/Pricing/Cancel';
+
 import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
@@ -28,8 +31,8 @@ const App = () => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const user = await generateUserDocument(userAuth);
-        const { uid, displayName, phone, photoURL,ispaid } = user;
-        dispatch(setUser({ uid, displayName, phone, photoURL,ispaid }));
+        const { uid, displayName, phone, photoURL,ispaid,paying } = user;
+        dispatch(setUser({ uid, displayName, phone, photoURL,ispaid,paying }));
       }
     });
   }, [dispatch]);
@@ -45,6 +48,8 @@ const App = () => {
         <Tosign path="/tosign" />
         <Toview path="/toview" />
         <Trashcan path="/trash" />
+        <Sucsess path="/sucsess" />
+        <Cancel path="/justincase"/>
       </Router>
     </div>
   ) : (
