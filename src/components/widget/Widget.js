@@ -2,9 +2,9 @@ import React from 'react'
 import './widget.css'
 
 import PricingPage from '../Pricing/PricingPage';
-import { firestore } from '../../firebase/firebase';
+// import { firestore } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';
-import { selectUser, setUser } from '../../firebase/firebaseSlice';
+import { selectUser } from '../../firebase/firebaseSlice';
 
 
 
