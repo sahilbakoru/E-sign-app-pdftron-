@@ -40,7 +40,8 @@ docs2.forEach(function(v) {
     <div>
 
        <nav>
-       <Link to="/" className='profileLink'><img style={{width:"17rem"}} src={download}></img></Link> 
+       <Link to="/" className='profileLink'><img style={{width:"17rem"}} src={download}></img></Link>
+      <h5 style={{color:"lightgreen" ,marginLeft:"-45rem", marginTop:"3rem"}} >Go Green</h5>
   <ul>
     {displayName===null?"":
 <div>
