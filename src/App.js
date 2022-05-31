@@ -7,7 +7,7 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Sucsess from './components/Pricing/Sucsess';
 import Cancel from './components/Pricing/Cancel';
-
+import Helmet from 'react-helmet';
 import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
@@ -39,6 +39,10 @@ const App = () => {
 
   return user ? (
     <div>
+      <Helmet>
+      
+       
+      </Helmet>
       <Router>
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />

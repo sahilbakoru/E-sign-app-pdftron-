@@ -1,62 +1,44 @@
-require('dotenv').config()
+const express = require("express");
+const app = express();
+const helmet = require("helmet");
+// This is your test secret API key.
+const stripe = require("stripe")('sk_test_51KQuSuSBe5QxKGr0eXggWg7dAmoP06fB2ifebBEDRgQQrTTn00DN1C110S3y4RGJikwUoUzldJrFjhChc0mFSQ4T00PXtlJMrW');
 
-const express = require('express')
-
-const cors =require('cors')
-
-const app = express()
-
-app.use(express.json())
-
-app.use(cors({
-    origin:"http://localhost:3000"
-}))
-
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
-
-const storeItems = new Map([
-    [1,{priceInCents:1000, name:"Top Up"}],
-    [2,{priceInCents:100, name:"One Letter"}]
-])
-
-app.get("/sucr",(req,res)=>{
-    res.send("ok")
-    console.log("ok")
-})
-
-app.post("/create-checkout-session", async (req, res) => {
-    try {
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        mode: "payment",
-        line_items: req.body.items.map(item => {
-          const storeItem = storeItems.get(item.id)
-          return {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: storeItem.name,
-              },
-              unit_amount: storeItem.priceInCents,
-            },
-            quantity: item.quantity,
-          }
-          
-        }),
-        
-        success_url: `${process.env.CLIENT_URL}/sucsess`,
-        cancel_url: `${process.env.CLIENT_URL}/`,
-      })
-      if(session.payment_status==='unpaid'){
-    console.log("unpiad")
-    }
-     res.json({ url: session.url})
-      console.log("mystatus",session)
-    } catch (e) {
-      res.status(500).json({ error: e.message })
-    }
+app.use(express.static("public"));
+app.use(express.json());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "stripe.com"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
   })
+);
 
+const calculateOrderAmount = (items) => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
 
-console .log("server is on port 3001")
-app.listen(3001)
+app.post("/create-payment-intent", async (req, res) => {
+  const { items } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: calculateOrderAmount(items),
+    currency: "eur",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
+
+app.listen(4242, () => console.log("Node server listening on port 4242!"));
