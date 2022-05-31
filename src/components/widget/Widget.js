@@ -14,9 +14,7 @@ import { selectUser, setUser } from '../../firebase/firebaseSlice';
   const user = useSelector(selectUser);
   let { ispaid,displayName,phone} = user;
 
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-  }
+
 
 
   return (
