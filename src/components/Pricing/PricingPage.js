@@ -42,7 +42,9 @@ const options = {
 
 console.log(clientSecret)
         
- 
+ const showpay =()=>{
+   setshowbt(true)
+ }
 
   return (
     <center >
@@ -51,7 +53,7 @@ console.log(clientSecret)
       <ul class="priceprice" >
         <li class="header">Pricing</li>
         <li class="grey">€0.99/Per Letter Sent &nbsp; </li>
-      <li class="grey2">€9.9 For 10 Letter Sent &nbsp; <button onClick={setshowbt(true)}> pay</button></li>
+      <li class="grey2">€9.9 For 10 Letter Sent &nbsp; <button className='btn btn-primary' onClick={showpay}> Top Up Now </button></li>
       </ul>
       </div>:
        <div className="App">
