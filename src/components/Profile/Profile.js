@@ -28,6 +28,7 @@ const ProfilePage = () => {
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
   const [mshow, setmshow] = useState(false);
+  const [showmodal, setshowmodal] = useState(false);
   // console.log("all Users",users )
  
 
@@ -58,9 +59,7 @@ const ProfilePage = () => {
 
   },[]);
 
-  if(displayName==null){
-    $("#myModal").modal();
-  }
+
 
 let exist=true
  
@@ -75,11 +74,11 @@ for (var i = 0; i < users.length; i++) {
       exist=false
     }
 }
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
+
+const modaltriger = () => {
+  setshowmodal(true);
+}
+console.log(showmodal)
 
 
   return (
@@ -87,7 +86,7 @@ $(document).ready(function(){
  
 
          
-
+{showmodal==true?<h4>hello</h4>:""}
       
     
 {displayName==null?
@@ -96,13 +95,12 @@ $(document).ready(function(){
   <h4 style={{"color":"red"}}>You don't have a username.</h4>
   <h4>Please add username to send or receve docs</h4>
  
-  <button type="button" class="btn btn-info btn-lg" id="myBtn">Add Username</button>
+  <button type="button" class="btn btn-info btn-lg" id="myBtn" onClick={modaltriger}>Add Username</button>
 
  
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+
     
-     
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -114,7 +112,7 @@ $(document).ready(function(){
         <div class="modal-body">
         { displayName==null?
 <div>
-<input class="form-control" placeholder='enter new username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
+<input class="form-control"  placeholder='enter new username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
 <br></br>
 </div>:
             ""
@@ -130,8 +128,7 @@ $(document).ready(function(){
         <div class="modal-footer">  
         </div>
       </div>
-    </div>
-  </div>
+  
 </div>:""
 
 }
