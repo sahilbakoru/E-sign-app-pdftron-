@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
+import Profile from './components/Profile/Profile';
 import SignUp from './components/SignUp/SignUp';
 import Sucsess from './components/Pricing/Sucsess';
 import Cancel from './components/Pricing/Cancel';
-import Helmet from 'react-helmet';
+// import Helmet from 'react-helmet';
 import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
@@ -37,12 +38,13 @@ const App = () => {
     });
   }, [dispatch]);
 
+
   return user ? (
     <div>
-      <Helmet>
-      
-       
-      </Helmet>
+    {user.displayName===!null?"":
+    <Profile path="/setname"/>}
+
+  
       <Router>
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />

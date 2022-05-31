@@ -16,7 +16,7 @@ import { selectUser, setUser } from '../../firebase/firebaseSlice';
 import { resetSignee } from '../Assign/AssignSlice';
 import { navigate, Link } from '@reach/router';
 import { Spinner } from 'gestalt';
-import Navbar from '../navbar/Navbar';
+// import Navbar from '../navbar/Navbar';
 import './Profile.css';
   import  download  from '../../img/newlogo.png';
 
@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
   const [mshow, setmshow] = useState(false);
-  const [showmodal, setshowmodal] = useState(false);
+
   // console.log("all Users",users )
  
 
@@ -75,10 +75,10 @@ for (var i = 0; i < users.length; i++) {
     }
 }
 
-const modaltriger = () => {
-  setshowmodal(true);
+if(displayName!==null){
+  navigate("/")
 }
-console.log(showmodal)
+
 
 
   return (
@@ -86,7 +86,7 @@ console.log(showmodal)
  
 
          
-{showmodal==true?<h4>hello</h4>:""}
+
       
     
 {displayName==null?
@@ -95,12 +95,6 @@ console.log(showmodal)
   <h4 style={{"color":"red"}}>You don't have a username.</h4>
   <h4>Please add username to send or receve docs</h4>
  
-  <button type="button" class="btn btn-info btn-lg" id="myBtn" onClick={modaltriger}>Add Username</button>
-
- 
-
-    
-
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -138,7 +132,7 @@ console.log(showmodal)
      
 
     
-    <Navbar/>
+    {/* <Navbar/> */}
    
     </div>
 

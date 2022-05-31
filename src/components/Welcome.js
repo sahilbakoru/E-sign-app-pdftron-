@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react';
-import Profile from './Profile/Profile';
+// import Profile from './Profile/Profile';
+import Navbar from './navbar/Navbar';
 import { navigate } from '@reach/router';
 import { useDispatch } from 'react-redux';
 // import SignList from './Lists/SignList';
@@ -22,7 +23,7 @@ import JsonData from "../data/data.json";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-   let { ispaid } = user;
+   let { ispaid, displayName } = user;
 
 console.log("ispaid",ispaid)
   useEffect(() => {
@@ -35,11 +36,19 @@ console.log("ispaid",ispaid)
   const [show,setShow]=useState(false)
   const [show2,setShow2]=useState(false)
 
-
+  const checkName=()=>{
+    if(displayName===null){
+     navigate("/setname")
+    }
+   
+    
+  }
+  checkName()
+  
 
   return (
     <div>
-      <Profile />
+      <Navbar />
       <Widget/>
       <hr/>
 
