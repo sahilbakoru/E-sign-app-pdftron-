@@ -1,8 +1,9 @@
-import { navigate } from '@reach/router';
+import { navigate ,Link} from '@reach/router';
+import download from "../../img/newlogo.png";
 
 export const Navigation = (props) => {
   return (
-    <nav style={{background:"black"}} id='menu' className='navbar navbar-default navbar-fixed-top'>
+    <nav style={{background:"#0f2a61"}} id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
         <div className='navbar-header'>
           <button
@@ -25,6 +26,9 @@ export const Navigation = (props) => {
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right'>
+          <Link to="/" className="profileLink">
+          <img style={{ width: "14rem" }} src={download}></img>
+        </Link>
             <li>
               <a style={{color:"white"}} href='#features' className='page-scroll'>
                 Features
@@ -35,26 +39,7 @@ export const Navigation = (props) => {
                 About
               </a>
             </li>
-            <li >
-              <a style={{color:"white"}} href='#services' className='page-scroll'>
-                Services
-              </a>
-            </li>
-            <li>
-              <a style={{color:"white"}} href='#portfolio' className='page-scroll'>
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a  style={{color:"white"}} href='#testimonials' className='page-scroll'>
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a  style={{color:"white"}} href='#team' className='page-scroll'>
-                Team
-              </a>
-            </li>
+
             <li>
               <a style={{color:"white"}} href='#contact' className='page-scroll'>
                 Contact

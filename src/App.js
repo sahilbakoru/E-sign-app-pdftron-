@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Router } from '@reach/router';
 import { useSelector, useDispatch } from 'react-redux';
-
+import Privacy from './components/Privacy';
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
@@ -42,10 +42,9 @@ const App = () => {
   return user ? (
     <div>
     {user.displayName===!null?"":
-    <Profile path="/setname"/>}
-
-  
+    <Profile path="/setname"/>}  
       <Router>
+      <Privacy path="/privacy" />
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />
         <Preparation path="/prepareDocument" />

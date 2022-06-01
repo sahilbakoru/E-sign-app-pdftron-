@@ -139,8 +139,12 @@ const tothetop=()=>{
             &copy; Vervebot , Design by{' '}
             <a href='http://www.vervebot.io' rel='nofollow'>
               vervebot
-            </a>
+            </a> 
           </p>
+        <button  className="btn" onClick={event => {
+            navigate(`/privacy`);
+            window.scrollTo(0, 0)
+          }}>Privacy Policy</button>
         </div>
       </div> 
     </div>
