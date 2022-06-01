@@ -136,7 +136,7 @@ const tothetop=()=>{
        <div id='footer'>
         <div className='container text-center'>
           <p>
-            &copy; Vervebot , Design by{' '}
+            &copy;ipostbox , Design by{' '}
             <a href='http://www.vervebot.io' rel='nofollow'>
               vervebot
             </a> 
