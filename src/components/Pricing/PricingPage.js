@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import './pricing.css'
+import { Spinner } from 'gestalt';
 import { firestore } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';
 import { selectUser, setUser } from '../../firebase/firebaseSlice';
@@ -13,6 +14,8 @@ const PricingPage = () => {
     const user = useSelector(selectUser);
     const user2 =useSelector(selectUser)
     const [showbt , setshowbt] =useState(false)
+  const [show, setShow] = useState(false);
+
 
     let { ispaid ,paying} = user;
 let paymentst= ""
@@ -21,7 +24,8 @@ console.log("paymentst",paymentst)
 
 const [clientSecret, setClientSecret] = useState("");
 
-useEffect(() => {
+//useEffect(() => {
+
   // Create PaymentIntent as soon as the page loads
   // fetch("/create-payment-intent", {
   //   method: "POST",
@@ -30,7 +34,14 @@ useEffect(() => {
   // })
   //   .then((res) => res.json())
   //   .then((data) => setClientSecret(data.clientSecret));
-}, []);
+//}, []);
+
+const plusTen=async(uid,doc)=>{
+  setShow(true)
+  await firestore.collection("users").doc(user2.uid).update({paying:"false",ispaid:ispaid+10});
+  document.location.reload()
+   
+      }
 
 const stripeReq=()=>{
   fetch("/create-payment-intent", {
@@ -61,11 +72,15 @@ console.log(clientSecret)
   return (
     <center >
       {showbt===false?
-      <div class="pricecolumns"  >
-      <ul class="priceprice" >
-        <li class="header">Pricing</li>
-        <li class="grey">€0.99/Per Letter Sent &nbsp; </li>
-      <li class="grey2">€9.9 For 10 Letter Sent &nbsp; <button className='btn btn-primary' onClick={showpay}> Top Up Now </button></li>
+      <div className="pricecolumns"  >
+      <ul className="priceprice" >
+        <li className="header">Pricing</li>
+        <li className="grey">€0.99/Per Letter Sent &nbsp; </li>
+      <li className="grey2">€9.9 For 10 Letter Sent &nbsp;{show ?<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+: <button className='btn btn-primary' onClick={plusTen}> Top Up Now </button> }</li>
       </ul>
       </div>:
        <div className="App">
@@ -75,12 +90,12 @@ console.log(clientSecret)
         </Elements>
       )}
     </div>}
-    {/* <div class="pricecolumns"  >
-      <ul class="priceprice" >
-        <li class="header">Pricing</li>
-        <li class="grey">€0.99/Per Letter Sent &nbsp; 
+    {/* <div className="pricecolumns"  >
+      <ul className="priceprice" >
+        <li className="header">Pricing</li>
+        <li className="grey">€0.99/Per Letter Sent &nbsp; 
        
-      <li class="grey2">€9.9 For 10 Letter Sent &nbsp;  { showbt? <button  class="btn btn-primary" onClick={plusten}>Top Up Now </button>:""}</li>
+      <li className="grey2">€9.9 For 10 Letter Sent &nbsp;  { showbt? <button  className="btn btn-primary" onClick={plusten}>Top Up Now </button>:""}</li>
 
       </ul>
       </div> */}

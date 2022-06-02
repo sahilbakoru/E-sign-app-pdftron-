@@ -19,7 +19,6 @@
     "firebase": "^9.6.9",
     "fs-extra": "^9.0.0",
     "gestalt": "^1.58.1",
-    "helmet": "^5.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-firebase-hooks": "^5.0.3",
@@ -31,7 +30,7 @@
     "stripe": "^9.5.0"
   },
   "homepage": "http://localhost:3000",
-  "proxy": "http://0.0.0.0:4242",
+
   "scripts": {
     "start-client": "react-scripts start",
     "start-server": "node server.js",
@@ -39,7 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "node tools/copy-webviewer-files.js",
-    "start": "concurrently \"yarn start-server\" \"yarn start-client\""
+    "start": "yarn start-client"
   },
   "eslintConfig": {
     "extends": "react-app"

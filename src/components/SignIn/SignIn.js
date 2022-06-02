@@ -78,9 +78,9 @@ const ValidateOtp = () => {
 
   return (
 <div >
-<div class="login-float-child" >
-      <div  class="login_animate" style={{ paddingBottom:"40rem",paddingTop:"25rem"}}>
-          <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
+<div className="login-float-child" >
+      <div  className="login_animate" style={{ paddingBottom:"40rem",paddingTop:"25rem"}}>
+          <center ><h1 className="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
      
           <center>
               <br></br>
@@ -93,7 +93,7 @@ const ValidateOtp = () => {
       placeholder="Enter phone number"
       value={phone}
       onChange={setnumber}/>
-                      {/* <input class="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                      {/* <input className="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
                        onChange={(e)=> setnumber(e.target.value)}
                      value={phone}
                       placeholder="Phone number" /> */}
@@ -104,7 +104,7 @@ const ValidateOtp = () => {
                   <button  style={{  background:"linear-gradient(245deg, rgba(11,116,255,1) 0%, rgba(130,242,182,1) 100%)"}}className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
-                  <input class="form-control" style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                  <input className="form-control" style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
                    type="text" placeholder={"Enter your OTP"}
                       onChange={e => setotp(e.target.value)}
                       value={otp}
@@ -123,7 +123,7 @@ const ValidateOtp = () => {
      
       </div>
       </div>
-        <img class="login-float-child" height={850} width={200} src={sidegif2} />
+        <img className="login-float-child" height={850} width={200} src={sidegif2} />
       </div>
   );
 }

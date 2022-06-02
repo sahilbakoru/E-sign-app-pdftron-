@@ -75,9 +75,9 @@ const Navbar = () => {
                       navigate(`/assignUsers`);
                     }}
                   >
-                    <button class="btn ">
+                    <button className="btn ">
                       <a href="#" style={{ color: "black" }}>
-                        <i aria-hidden="true" class="fa fa-plus-circle fa-lg"></i>{" "}
+                        <i aria-hidden="true" className="fa fa-plus-circle fa-lg"></i>{" "}
                         Create
                       </a>
                     </button>
@@ -94,10 +94,10 @@ const Navbar = () => {
           >
             <a href="#" style={{ color: "white" }}>
               {" "}
-              <i class="fa fa-inbox"></i> Inbox
+              <i className="fa fa-inbox"></i> Inbox
             </a>
             &nbsp;
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
               {docs.length}
             </span>
           </li>
@@ -108,10 +108,10 @@ const Navbar = () => {
             }}
           >
             <a href="#" style={{ color: "white" }}>
-              <i class="fa fa-edit"></i> Review
+              <i className="fa fa-edit"></i> Review
             </a>
             &nbsp;
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
               {res.false}
             </span>
           </li>
@@ -122,15 +122,15 @@ const Navbar = () => {
             }}
           >
             <a href="#" style={{ color: "white" }}>
-              <i class="fa fa-trash"></i> Trash{" "}
+              <i className="fa fa-trash"></i> Trash{" "}
             </a>
           </li>
           <li> 
-          <div class="dropdown">
+          <div className="dropdown">
   <span style={{color:"white"}}>
-  <i class="fa fa-language" ></i> 
+  <i className="fa fa-language" ></i> 
   &nbsp;  Language</span>
-  <div class="dropdown-content">
+  <div className="dropdown-content">
   <div id="google_translate_element"></div>
   </div>
 </div>                
@@ -145,7 +145,7 @@ const Navbar = () => {
           >
             <a href="#" style={{ color: "#fc5603" }}>
               {" "}
-              <i class="fa fa-power-off"></i> Sign out
+              <i className="fa fa-power-off"></i> Sign out
             </a>
           </li>
         </ul>

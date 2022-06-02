@@ -39,7 +39,7 @@ const tothetop=()=>{
                   get back to you as soon as possible.
                 </p>
               </div>
-{send?<div class="alert alert-success" role="alert">
+{send?<div className="alert alert-success" role="alert">
   Message send successfully 
 </div>
 :""}

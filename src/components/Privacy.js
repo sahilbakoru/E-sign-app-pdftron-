@@ -5,7 +5,12 @@ import Navbar from './navbar/Navbar';
 const Privacy = () => {
   return (
       <div>
-          <Navbar/>
+          <button  className='btn'
+          style={{margin:"10px", border:"1px solid black"}}
+          onClick={(event) => {
+            navigate(`/`);
+          }}
+          >Home</button>
       <div style={{padding:"16rem" , color:"black"}}>
      
     <h2> iPostboxⓇ  Privacy Policy</h2>

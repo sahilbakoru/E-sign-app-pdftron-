@@ -5,7 +5,7 @@ import Privacy from './components/Privacy';
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
-import SignUp from './components/SignUp/SignUp';
+// import SignUp from './components/SignUp/SignUp';
 import Sucsess from './components/Pricing/Sucsess';
 import Cancel from './components/Pricing/Cancel';
 // import Helmet from 'react-helmet';
@@ -13,7 +13,7 @@ import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
 import Header from './components/Header';
-import PasswordReset from './components/PasswordReset/PasswordReset';
+// import PasswordReset from './components/PasswordReset/PasswordReset';
 import Welcome from './components/Welcome';
 import Tosign from './components/Tosign';
 import Toview from './components/Toview';
@@ -63,8 +63,7 @@ const App = () => {
       <Router>
        <Allhome path="/" />
         <SignIn path="/SignIn" />
-        <SignUp path="signUp" />
-        <PasswordReset path="passwordReset" />
+        <Privacy path="/privacy" />
       </Router>
     </div>
   );
