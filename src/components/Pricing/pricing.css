@@ -1,7 +1,8 @@
 .pricecolumns {
- 
+  border: 1px solid black;
     width: 100%;
     padding: 0px;
+    border-radius: 3rem;
   }
   
   .priceprice {

@@ -20,17 +20,19 @@ import Helmet from 'react-helmet';
 
   return (
       <div>
-         <ul className="cards">
-           <center>
+         <ul className="cards" >
+           <div >
+           <center >
             
-  <li style={{ padding:"3rem", border:"1px solid black", borderRadius:"3rem",background:"linear-gradient(to right, #12c2e9, #c471ed, #f64f59)"}} >
-  <h2  style={{color:"wheat"}} >  <i className="fa fa-user"></i> {displayName}'s Dashboard </h2>
+  <li  style={{ padding:"2.5rem", border:"1px solid black", borderRadius:"3rem",background:"linear-gradient(to right, #9796f0, #fbc7d4)"}} >
+  <h2 >  <i className="fa fa-user"></i> {displayName}'s Dashboard </h2>
   <br/>
   <h2  >  <i className="fa fa-files-o"></i> balance : {ispaid-1} </h2>
 
   <h3 > Phone : {phone} </h3>
   </li>
   </center>
+  </div>
   <li>
   <PricingPage/>
   </li>
