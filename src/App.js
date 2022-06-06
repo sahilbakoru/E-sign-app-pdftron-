@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Router } from '@reach/router';
 import { useSelector, useDispatch } from 'react-redux';
 import Privacy from './components/Privacy';
+import Terms from './components/Terms';
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
@@ -55,6 +56,7 @@ const App = () => {
         <Trashcan path="/trash" />
         <Sucsess path="/sucsess" />
         <Cancel path="/justincase"/>
+        <Terms path="/terms" />
       </Router>
     </div>
   ) : (
@@ -64,6 +66,7 @@ const App = () => {
        <Allhome path="/" />
         <SignIn path="/SignIn" />
         <Privacy path="/privacy" />
+      <Terms path="/terms" />
       </Router>
     </div>
   );

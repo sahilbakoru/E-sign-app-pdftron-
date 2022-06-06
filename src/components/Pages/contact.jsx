@@ -145,6 +145,13 @@ const tothetop=()=>{
             navigate(`/privacy`);
             window.scrollTo(0, 0)
           }}>Privacy Policy</button>
+           <button  
+           style={{marginLeft:"1rem"}}
+           className="btn" 
+           onClick={event => {
+            navigate(`/terms`);
+            window.scrollTo(0, 0)
+          }}>Terms and Conditions </button>
         </div>
       </div> 
     </div>

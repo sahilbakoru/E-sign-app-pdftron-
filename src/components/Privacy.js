@@ -1,6 +1,6 @@
 import React from 'react'
 import { navigate } from '@reach/router';
-import Navbar from './navbar/Navbar';
+
 
 const Privacy = () => {
   return (
@@ -13,7 +13,7 @@ const Privacy = () => {
           >Home</button>
       <div style={{padding:"16rem" , color:"black"}}>
      
-    <h2> iPostboxⓇ  Privacy Policy</h2>
+    <h2> iPostbox&#174;  Privacy Policy</h2>
     <h3>Privacy Information</h3>
     <h5> At iPostbox, privacy is primacy. The objective of this document is to set out how iPostbox and its affiliates ("us," "our," or "we") gather, use, store, or otherwise process personal details about clients and other people (collectively "you") who access or operate our websites, our mobile applications, our web or professional client, and any of our different websites, products, or services that tie to this Privacy Notice (the "Services"). Using our Services, you apprehend that we will gather and use your data as defined in this Privacy Information.
 
