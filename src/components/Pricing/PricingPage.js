@@ -85,9 +85,10 @@ console.log(clientSecret)
       </div>:
        <div className="App">
       {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
+        <div></div>
+        // <Elements options={options} stripe={stripePromise}>
+        //   <CheckoutForm />
+        // </Elements>
       )}
     </div>}
     {/* <div className="pricecolumns"  >
