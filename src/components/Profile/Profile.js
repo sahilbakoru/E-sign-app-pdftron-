@@ -117,7 +117,7 @@ if(displayName!==null){
 {exist?"":<button className="btn btn-primary" text='add username' onClick={() => {
       updateName(displayName);
     }} >Add </button>}
-            {exist?<h4 style={{"color":"red"}} >This username is taken</h4>: "" }
+       {show2? "":<div>{exist?<h4 style={{"color":"red"}} >This username is taken</h4>: "" }</div>} 
         </div>
         <div className="modal-footer">  
         </div>

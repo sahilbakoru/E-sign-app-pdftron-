@@ -88,7 +88,7 @@ const ValidateOtp = () => {
                  
                  <h5 style={{color:"white"}}>Enter Phone with country-code</h5>
                  <PhoneInput
-                 style={{width:"50%",height:"2rem" , borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}}
+                 style={{width:"50%",height:"4rem" , borderRadius:"0px",border:"none",backgroundColor:"white",padding:"5px"}}
                  defaultCountry="RU"
       placeholder="Enter phone number"
       value={phone}
