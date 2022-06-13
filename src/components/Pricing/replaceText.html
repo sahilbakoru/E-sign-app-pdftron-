@@ -1,0 +1,29 @@
+  {showbt===false?
+      <div className="pricecolumns"  >
+      <ul className="priceprice" >
+        <li className="header">Pricing</li>
+        <li className="grey">€0.99/Per Letter Sent &nbsp; </li>
+      <li className="grey2">€9.9 For 10 Letter Sent &nbsp;{show ?<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+: <button className='btn btn-primary' onClick={plusTen}> Top Up Now </button> }</li>
+      </ul>
+      </div>:
+       <div className="App">
+      {clientSecret && (
+        <div></div>
+        // <Elements options={options} stripe={stripePromise}>
+        //   <CheckoutForm />
+        // </Elements>
+      )}
+    </div>}
+    {/* <div className="pricecolumns"  >
+      <ul className="priceprice" >
+        <li className="header">Pricing</li>
+        <li className="grey">€0.99/Per Letter Sent &nbsp; 
+       
+      <li className="grey2">€9.9 For 10 Letter Sent &nbsp;  { showbt? <button  className="btn btn-primary" onClick={plusten}>Top Up Now </button>:""}</li>
+
+      </ul>
+      </div> */}

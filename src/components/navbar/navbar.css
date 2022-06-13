@@ -1,0 +1,67 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
+nav {
+    display: flex; /* 1 */
+    justify-content: space-between; /* 2 */
+    padding: 1rem 2rem; /* 3 */
+    background: #0f2a61; /* 4 */
+    /* background: linear-gradient(
+      to right, #ff5395, #fc9651,
+       #fb57fb, #70bef9); */
+
+  }
+ 
+  nav ul {
+    display: flex; /* 5 */
+    list-style: none; /* 6 */
+    font-size: large;
+    
+  }
+  /* nav a:hover{
+    background: #dd4a4a;
+  } */
+  
+  nav li {
+    padding-left: 5rem; /* 7! */
+    padding-top: 2rem;
+    
+
+  }
+  nav a {
+    text-decoration:solid;
+    color: #d9d9d9;
+    
+  }
+
+  /* 
+  Extra small devices (phones, 600px and down) 
+*/
+@media only screen and (max-width: 600px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      flex-direction: column;
+      padding-top: 0.5rem;
+    }
+    nav li {
+      padding: 0.5rem 0;
+    }
+  } 
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

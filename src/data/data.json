@@ -1,0 +1,155 @@
+{
+  "Header": {
+    "title": "Meet ipostbox!",
+    "paragraph": "Backing with a solution, Inspired by your concerns.We are delivering the solution to your troubles about online documenting."
+  },
+  "About": {
+    "paragraph": "iPostBox®️ is your virtual letter box allowing to send and receive letters and any correspondences in a click. Your letter box and post office at the same place. Reduce carbon footprint, save trees, save thousands of oil barrels and save water.",
+    "Why": [
+      "ipostbox is very responsive",
+      "Audit trail is beneficial"
+      
+    ],
+    "Why2": [
+      "No account required for a signer is excellent",
+      "Mobile experience is exemplary for the signer"
+     
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/portfolio/02-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/portfolio/04-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/portfolio/05-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/portfolio/06-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-large.jpg",
+      "smallImage": "img/portfolio/07-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08-large.jpg",
+      "smallImage": "img/portfolio/08-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-large.jpg",
+      "smallImage": "img/portfolio/09-small.jpg"
+    }
+  ],
+  "Services": [
+   
+    {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "Create E-Signatures",
+      "text": "With ipostbox, find the dissimilarity between digital and electronic signatures."
+    },
+    {
+      "icon": "fa fa-cloud-download",
+      "name": "Online Contract Signing",
+      "text": "ipostbox makes it effortless to request and sign agreements and contracts online with a few clicks."
+    },
+  
+    {
+      "icon": "fa fa-plane",
+      "name": "Document Management",
+      "text": "ipostbox document management enables signing, storing, accessing, and sharing documents."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"The portion of time ipostbox has preserved our company is incomprehensible. We're able to release up hundreds of hours consumed on paperwork and file managing, permitting us to get inventive done speedily.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"At the speed of today's demand, deadlines don't progress even if there are pauses in paperwork. But with ipostbox, our company experienced excellency with all this online work thing.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Using ipostbox permits us to organise our files and our papers in one place, and that holds us more methodical and more efficient in our day-to-day functions.\"",
+      "name": "John Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "Dublin 2, Ireland",
+    "phone": "+353838804056",
+    "email": "ipostbox.cloud@gmail.com",
+    "facebook": "https://m.facebook.com/ipostbox.cloud/",
+    "twitter": "https://twitter.com/iPostBox1",
+    "instagram": "https://www.instagram.com/ipostbox/",
+    "linkedin": "https://www.linkedin.com/company/ipostbox/"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Fastest Services",
+      "text": "Effortless to operate, snappy to learn, and a snap to execute, support and contracts are uncomplicated and suitable for anyone concerned."
+    },
+    {
+      "icon": "fa fa-simplybuilt",
+      "title": "Futuristic",
+      "text": "iSign and access virtual letter box by using virtual reality and VR glasses."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Portable with all Apps",
+      "text": "We work with the applications, services, and gadgets you already operate: Microsoft, Apple, Google, etc."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Value your Trust",
+      "text": "ipostbox is the most steadfast and globally entrusted electronic signatures and clearance service."
+    }
+  ]
+}
