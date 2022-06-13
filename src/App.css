@@ -14,11 +14,25 @@
   width: 50%;
   float: left;
   background: url(.././src/img/curves.gif) center 
-}  
+} 
+
+.login-float-child2 {
+  width: 50%;
+  float: left;
+}   
 
 .logintext{
   color: rgb(255, 255, 255);
   /* background: -webkit-linear-gradient(245deg, rgba(0,255,246,0.8113620448179272) 3%, rgba(255,41,41,0.7469362745098039) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
+}
+@media screen and (max-width: 540px) {
+  .login-float-child{
+  width: 100%;
+  }
+  
+.login-float-child2 {
+display: none;
+}  
 }

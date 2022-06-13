@@ -123,7 +123,7 @@ const ValidateOtp = () => {
      
       </div>
       </div>
-        <img className="login-float-child" height={850} width={200} src={sidegif2} />
+        <img className="login-float-child2" height={950} width={200} src={sidegif2} />
       </div>
   );
 }
