@@ -98,7 +98,7 @@ console.log(clientSecret)
         
  const showpay =()=>{
    setshowbt(true)
-   stripeReq()
+
  }
 
   return (
@@ -110,7 +110,7 @@ console.log(clientSecret)
         <form onSubmit={handleSubmit}>
             <fieldset className="FormGroup">
                 <div className="FormRow">
-                    <CardElement options={CARD_OPTIONS}/>
+                    <CardElement/>
                 </div>
             </fieldset>
             <button>Pay</button>
