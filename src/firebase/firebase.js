@@ -2,7 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
-
+import 'firebase/compat/functions';
 import { mergeAnnotations } from '../components/MergeAnnotations/MergeAnnotations';
 
 const firebaseConfig = {
@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+export const functions = firebase.functions();
 export { firebase};
 
 const provider = new firebase.auth.GoogleAuthProvider();

@@ -1,8 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
-import { firestore } from '../../firebase/firebase';
+import { firestore,functions } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';
+import Stripe from 'stripe';
 import { selectUser, setUser } from '../../firebase/firebaseSlice';
 import './pricing.css'
 
@@ -30,7 +31,7 @@ export default function PaymentForm() {
     const [success, setSuccess ] = useState(false)
     const user = useSelector(selectUser);
     const user2 =useSelector(selectUser)
-    const stripe = useStripe()
+const stripe = useStripe()
     const elements = useElements()
     const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(true);
@@ -51,6 +52,15 @@ export default function PaymentForm() {
     setShow(false)
    }
 
+const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
+//    const stripe = Stripe('pk_test_51KQuSuSBe5QxKGr0eblq7KKGVkR8hlPBviRYHv3mj7bSGib7m8Typ1zDPMsPfswk6CrmXB8W49BgnliUei0PhPmK00xbD4TFo1');
+   const stripeSubmit=()=>{
+    createPaymentIntent()
+    .then(response => {
+       const  type = "card";
+       const card = elements.getElement(CardElement);
+    });
+   };
 
     const handleSubmit = async (e) => {
         setIsLoading(true);
@@ -64,9 +74,12 @@ export default function PaymentForm() {
     if(!error) {
         try {
             const {id} = paymentMethod
-            const response = await axios.post("http://localhost:4242/create-payment-intent", {
-                amount: 1000,
-                id
+            const response = await axios.post("https://us-central1-ipostbox.cloudfunctions.net/createPaymentIntent", {
+                headers: {
+                    'Content-Type': 'application/json'
+                    },
+            amount: 100,  
+            id
             })
 
             if(response.data.success) {
