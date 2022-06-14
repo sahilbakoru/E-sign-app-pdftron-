@@ -35,6 +35,7 @@ const stripe = useStripe()
     const elements = useElements()
     const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(true);
+  const [payerror, setpayerror] = useState(false);
 
     let { ispaid } = user;
 
@@ -62,6 +63,7 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
     });
    };
 
+
     const handleSubmit = async (e) => {
         setIsLoading(true);
         e.preventDefault()
@@ -78,7 +80,7 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
                 headers: {
                     'Content-Type': 'application/json'
                     },
-            amount: 100,  
+            amount: 999,  
             id
             })
 
@@ -89,6 +91,7 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
 
         } catch (error) {
             console.log("Error", error)
+            setpayerror(true)
         }
     } else {
         console.log(error.message)
@@ -117,7 +120,7 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
              disabled={isLoading}
              className="btn btn-success">
             Pay
-            </button>:<h5>processing...</h5>}
+            </button>:<div>{payerror?<h5>some error</h5>:<h5>processing...</h5>}</div>}
             </center>
         </form>
         

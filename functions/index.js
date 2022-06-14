@@ -27,8 +27,8 @@ exports.createPaymentIntent = functions.https.onRequest((req, res) => {
     try {
       const payment = stripe.paymentIntents.create({
         amount,
-        currency: "USD",
-        description: "Spatula company",
+        currency: "EUR",
+        description: "iPostbox",
         payment_method: id,
         confirm: true,
       });
