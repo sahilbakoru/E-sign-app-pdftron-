@@ -4,23 +4,24 @@ const app = express();
 const cors = require("cors");
 app.use(express.static("public"));
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: true,
   credentials: true,
   optionSuccessStatus: 200,
 };
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//   res.header("Access-Control-Allow-Headers");
+//   next();
+// });
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 exports.createPaymentIntent = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
+  res.header("Access-Control-Allow-Origin", "*");
+  cors()(req, res, () => {
     const {id, amount} = req.body;
     const stripe = require("stripe")(functions.config().stripe.secret_key);
     try {
