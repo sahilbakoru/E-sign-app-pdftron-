@@ -21,8 +21,8 @@ const CARD_OPTIONS = {
 			"::placeholder": { color: "black" }
 		},
 		invalid: {
-			iconColor: "#ffc7ee",
-			color: "#ffc7ee"
+			iconColor: "red",
+			color: "red"
 		}
 	}
 }
