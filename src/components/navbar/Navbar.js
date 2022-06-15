@@ -67,7 +67,7 @@ const Navbar = () => {
           ) : (
             <div>
               {ispaid < 2 ? (
-               <h5 className="btn " style={{color:"white"}}><b>Top up create</b></h5>
+               <h5 className="btn " style={{color:"white"}}><b>Top up to create</b></h5>
               ) : (
                 <>
                   <li
