@@ -13,7 +13,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.27.2",
-    "concurrently": "^7.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
@@ -31,7 +30,6 @@
     "stripe": "^9.5.0"
   },
   "homepage": "http://localhost:3000",
-  "proxy": "http://localhost:4242",
   "scripts": {
     "start-client": "react-scripts start",
     "start-server": "node server.js",
