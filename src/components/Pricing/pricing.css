@@ -40,3 +40,32 @@
     background-color: #eee;
     font-size: 20px;
   }
+
+  .FormGroup {
+    margin: 20px 15px 20px;
+    padding: 0;
+    border-style: none;
+    background-color: #cbd7ff;
+    will-change: opacity, transform;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+    border-radius: 4px;
+  }
+  
+  .FormRow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 15px;
+    border-top: 1px solid #d9e0f8;
+  }
+
+
+.StripeElement--webkit-autofill {
+	background: transparent !important;
+}
+
+.StripeElement {
+	width: 100%;
+	padding: 11px 15px 11px 0;
+}

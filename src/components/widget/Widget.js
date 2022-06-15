@@ -2,6 +2,7 @@ import React from 'react'
 import './widget.css'
 
 import PricingPage from '../Pricing/PricingPage';
+import  StripeContainer from '../Pricing/StripeContainer'
 // import { firestore } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';
 import { selectUser } from '../../firebase/firebaseSlice';
@@ -34,7 +35,7 @@ import Helmet from 'react-helmet';
   </center>
   </div>
   <li>
-  <PricingPage/>
+  <StripeContainer/>
   </li>
   
 </ul>

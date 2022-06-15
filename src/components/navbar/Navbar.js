@@ -132,6 +132,7 @@ const Navbar = () => {
   &nbsp;  Language</span>
   <div className="dropdown-content">
   <div id="google_translate_element"></div>
+  <h6>⚠️ If translate not working please refresh the page.</h6>
   </div>
 </div>                
              </li>

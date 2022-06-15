@@ -2,18 +2,18 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
-
+import 'firebase/compat/functions';
 import { mergeAnnotations } from '../components/MergeAnnotations/MergeAnnotations';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA9At5Ox5pV5wmHX3atBAHTnn8t7kefMb8",
-  authDomain: "habydate-test.firebaseapp.com",
-  databaseURL: "https://habydate-test-default-rtdb.firebaseio.com",
-  projectId: "habydate-test",
-  storageBucket: "habydate-test.appspot.com",
-  messagingSenderId: "511126883810",
-  appId: "1:511126883810:web:b2227137787cb4a0a4fdbb",
-  measurementId: "G-BSXWY4F9FD"
+  apiKey: "AIzaSyBgj9TdN3a5GDnPoj7trCuOiq23Ueycshc",
+  authDomain: "ipostbox.firebaseapp.com",
+  databaseURL: "https://ipostbox-default-rtdb.firebaseio.com",
+  projectId: "ipostbox",
+  storageBucket: "ipostbox.appspot.com",
+  messagingSenderId: "689322563382",
+  appId: "1:689322563382:web:aa408fd828cbdced808597",
+  measurementId: "G-KVMGJXLE4P"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+export const functions = firebase.functions();
 export { firebase};
 
 const provider = new firebase.auth.GoogleAuthProvider();
