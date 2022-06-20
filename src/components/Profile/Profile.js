@@ -41,7 +41,7 @@ const ProfilePage = () => {
 
   const updateName =  async( uid,doc) => {
     setshow2(true)
-   await firestore.collection("users").doc(user.uid).update({displayName:newname.toLowerCase()});
+   await firestore.collection("users").doc(user.uid).update({displayName:newname.replace(/\s/g, '').toLowerCase()});
    document.location.reload()
   };
  
@@ -101,6 +101,7 @@ if(displayName!==null){
           <h4 className="modal-title">Select a unique username</h4>
           <h5>This username will be used to send or recive documents</h5>
           <h5 style={{"color":"red"}} >NOTE: You will not be able to change it later.</h5>
+          <h5 style={{"color":"red"}} >Do not Add space in username, all spaces in username will be removed.</h5>
 
         </div>
         <div className="modal-body">

@@ -125,6 +125,19 @@ const Navbar = () => {
               <i className="fa fa-trash"></i> Trash{" "}
             </a>
           </li>
+{/* only if user is admin */}
+{phone==+353838804056?
+<li
+            onClick={(event) => {
+              navigate(`/allusers`);
+            }}
+          >
+            <a href="#" style={{ color: "white" }}>
+            All users
+            </a>
+          </li>:null
+}
+
           <li> 
           <div className="dropdown">
   <span style={{color:"white"}}>

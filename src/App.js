@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile';
 // import SignUp from './components/SignUp/SignUp';
 import Sucsess from './components/Pricing/Sucsess';
 import Cancel from './components/Pricing/Cancel';
-// import Helmet from 'react-helmet';
+import Allusers from './components/allUsers/Allusers';
 import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
@@ -57,6 +57,7 @@ const App = () => {
         <Sucsess path="/sucsess" />
         <Cancel path="/justincase"/>
         <Terms path="/terms" />
+        <Allusers path="/allusers"/>
       </Router>
     </div>
   ) : (

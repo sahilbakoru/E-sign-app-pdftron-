@@ -37,7 +37,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "node tools/copy-webviewer-files.js",
-    "start": "yarn start-client"
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
