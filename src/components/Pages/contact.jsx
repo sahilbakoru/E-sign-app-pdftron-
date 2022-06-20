@@ -45,7 +45,8 @@ const tothetop=()=>{
 :""}
               <form ref={form} onSubmit={sendEmail}>
       <label style={{fontSize:"2rem"}}>Message</label>
-      <textarea name="message" 
+      <textarea style={{borderRadius:"1.5rem"}}
+       name="message" 
       d='message'
       className='form-control'
       rows='4'
