@@ -28,7 +28,6 @@ const Allusers = () => {
 
   return (
 <div style={{padding:"4rem", color:"black"}}>
-
     <button
      onClick={(event) => {
         navigate(`/`);
