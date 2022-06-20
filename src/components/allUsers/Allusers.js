@@ -19,7 +19,7 @@ const Allusers = () => {
           })))
         })
       },[]);
-      console.log("all users",users)
+      // console.log("all users",users)
 
       if(phone ==!+353838804056){
         navigate('/')
