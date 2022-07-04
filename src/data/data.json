@@ -4,7 +4,7 @@
     "paragraph": "Backing with a solution, Inspired by your concerns.We are delivering the solution to your troubles about online documenting."
   },
   "About": {
-    "paragraph": "ipostbox delivers out-of-the-box integrations with Google, Dropbox, Microsoft, etc. In multiplication, ipostbox comes with robust executive controls so companies can supervise access, storage, and clearances. Our global client support group delivers services during your business hours, and our API support engineering unit solves any technical matters operating our API.",
+    "paragraph": "iPostBox®️ is your virtual letter box allowing to send and receive letters and any correspondences in a click. Your letter box and post office at the same place. Reduce carbon footprint, save trees, save thousands of oil barrels and save water.",
     "Why": [
       "ipostbox is very responsive",
       "Audit trail is beneficial"
@@ -122,12 +122,13 @@
     }
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
-    "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "address": "Dublin 2, Ireland",
+    "phone": "+353838804056",
+    "email": "ipostbox.cloud@gmail.com",
+    "facebook": "https://m.facebook.com/ipostbox.cloud/",
+    "twitter": "https://twitter.com/iPostBox1",
+    "instagram": "https://www.instagram.com/ipostbox/",
+    "linkedin": "https://www.linkedin.com/company/ipostbox/"
   },
   "Features": [
     {
@@ -136,9 +137,9 @@
       "text": "Effortless to operate, snappy to learn, and a snap to execute, support and contracts are uncomplicated and suitable for anyone concerned."
     },
     {
-      "icon": "fa fa-bullhorn",
-      "title": "Get-at-able",
-      "text": "Permit, sign, and transmit important papers or scripts from your desk, on the street, or every place."
+      "icon": "fa fa-simplybuilt",
+      "title": "Futuristic",
+      "text": "iSign and access virtual letter box by using virtual reality and VR glasses."
     },
     {
       "icon": "fa fa-group",

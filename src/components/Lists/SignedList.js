@@ -84,7 +84,7 @@ const SignedList = () => {
                     {doc.isdelete==="true"? "":
                       <span style={{padding:"2%"}}>
                       {doc.phones.map(phone => (
-                         <button class="btn btn-primary" style={{paddingLeft:"6.5%"}}
+                         <button className="btn btn-primary" style={{paddingLeft:"6.5%"}}
                          onClick={event => {
                            const { docRef, docId } = doc;
                            dispatch(setDocToView({ docRef, docId }));
@@ -110,7 +110,7 @@ const SignedList = () => {
                       {doc.isdelete==="true"? "":
                       <div style={{padding:"2%"}} >
                       {doc.phones.map(phone => (
-                    <button class="btn btn-danger" onClick={() => {
+                    <button className="btn btn-danger" onClick={() => {
                       deleteit(doc.docId,doc.isdelete); 
                       alert("Are you sure you want to delete this document?");
                     }} >delete</button>

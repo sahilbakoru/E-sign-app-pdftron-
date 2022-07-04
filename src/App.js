@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
 import { Router } from '@reach/router';
 import { useSelector, useDispatch } from 'react-redux';
-
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
 import AssignUsers from './components/AssignUsers';
 import SignIn from './components/SignIn/SignIn';
-import SignUp from './components/SignUp/SignUp';
+import Profile from './components/Profile/Profile';
+// import SignUp from './components/SignUp/SignUp';
+import Sucsess from './components/Pricing/Sucsess';
+import Cancel from './components/Pricing/Cancel';
+import Allusers from './components/allUsers/Allusers';
 import Preparation from './components/Preparation';
 import Sign from './components/Sign';
 import View from './components/View';
 import Header from './components/Header';
-import PasswordReset from './components/PasswordReset/PasswordReset';
+// import PasswordReset from './components/PasswordReset/PasswordReset';
 import Welcome from './components/Welcome';
 import Tosign from './components/Tosign';
 import Toview from './components/Toview';
@@ -28,15 +33,19 @@ const App = () => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const user = await generateUserDocument(userAuth);
-        const { uid, displayName, phone, photoURL,ispaid } = user;
-        dispatch(setUser({ uid, displayName, phone, photoURL,ispaid }));
+        const { uid, displayName, phone, photoURL,ispaid,paying } = user;
+        dispatch(setUser({ uid, displayName, phone, photoURL,ispaid,paying }));
       }
     });
   }, [dispatch]);
 
+
   return user ? (
     <div>
+    {user.displayName===!null?"":
+    <Profile path="/setname"/>}  
       <Router>
+      <Privacy path="/privacy" />
         <Welcome path="/" />
        <AssignUsers path="/assignUsers" />
         <Preparation path="/prepareDocument" />
@@ -45,6 +54,10 @@ const App = () => {
         <Tosign path="/tosign" />
         <Toview path="/toview" />
         <Trashcan path="/trash" />
+        <Sucsess path="/sucsess" />
+        <Cancel path="/justincase"/>
+        <Terms path="/terms" />
+        <Allusers path="/allusers"/>
       </Router>
     </div>
   ) : (
@@ -53,8 +66,8 @@ const App = () => {
       <Router>
        <Allhome path="/" />
         <SignIn path="/SignIn" />
-        <SignUp path="signUp" />
-        <PasswordReset path="passwordReset" />
+        <Privacy path="/privacy" />
+      <Terms path="/terms" />
       </Router>
     </div>
   );

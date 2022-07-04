@@ -39,13 +39,14 @@ const tothetop=()=>{
                   get back to you as soon as possible.
                 </p>
               </div>
-{send?<div class="alert alert-success" role="alert">
+{send?<div className="alert alert-success" role="alert">
   Message send successfully 
 </div>
 :""}
               <form ref={form} onSubmit={sendEmail}>
       <label style={{fontSize:"2rem"}}>Message</label>
-      <textarea name="message" 
+      <textarea style={{borderRadius:"1.5rem"}}
+       name="message" 
       d='message'
       className='form-control'
       rows='4'
@@ -118,8 +119,13 @@ const tothetop=()=>{
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.youtube : '/'}>
-                      <i className='fa fa-youtube'></i>
+                    <a href={props.data ? props.data.instagram : '/'}>
+                      <i className='fa fa-instagram'></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href={props.data ? props.data.linkedin : '/'}>
+                      <i className='fa fa-linkedin'></i>
                     </a>
                   </li>
                 </ul>
@@ -130,12 +136,23 @@ const tothetop=()=>{
       </div>
        <div id='footer'>
         <div className='container text-center'>
-          {/* <p>
-            &copy; 2020 Issaaf Kattan React Land Page Template. Design by{' '}
-            <a href='http://www.templatewire.com' rel='nofollow'>
-              TemplateWire
-            </a>
-          </p> */}
+          <p>
+            &copy;ipostbox , Design by{' '}
+            <a href='http://www.vervebot.io' rel='nofollow'>
+              vervebot
+            </a> 
+          </p>
+        <button  className="btn" onClick={event => {
+            navigate(`/privacy`);
+            window.scrollTo(0, 0)
+          }}>Privacy Policy</button>
+           <button  
+           style={{marginLeft:"1rem"}}
+           className="btn" 
+           onClick={event => {
+            navigate(`/terms`);
+            window.scrollTo(0, 0)
+          }}>Terms and Conditions </button>
         </div>
       </div> 
     </div>

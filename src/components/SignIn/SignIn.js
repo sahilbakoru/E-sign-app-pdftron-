@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Link, navigate } from '@reach/router';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
 import {firebase } from '../../firebase/firebase';
-import sidegif from '../../img/login-bg.gif'
+
 import sidegif2 from '../../img/back2.gif'
+
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 
 
@@ -23,7 +26,7 @@ import { Spinner } from 'gestalt';
 
 const SignIn = () => {
   // Inputs
-  const [phone, setnumber] = useState("");
+  const [phone, setnumber] = useState()
   const [otp, setotp] = useState('');
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState('');
@@ -48,7 +51,9 @@ const SignIn = () => {
       })
        
       console.log(phone)
-      setnumber("");
+  
+  
+
       
   }
   // Validate OTP
@@ -68,22 +73,30 @@ const ValidateOtp = () => {
  
 
 
+  console.log("phone",phone)
+
 
   return (
 <div >
-<div class="login-float-child" >
-      <div  class="login_animate" style={{ paddingBottom:"40rem",paddingTop:"25rem"}}>
-          <center ><h1 class="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
+<div className="login-float-child" >
+      <div  className="login_animate" style={{ paddingBottom:"40rem",paddingTop:"25rem"}}>
+          <center ><h1 className="logintext"style={{fontSize:"5rem",fontWeight:"500",paddingBottom:"4rem"}}>Login</h1></center>
      
           <center>
               <br></br>
               <div   style={{ display: !show ? "block" : "none" }}>
                  
                  <h5 style={{color:"white"}}>Enter Phone with country-code</h5>
-                      <input class="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                 <PhoneInput
+                 style={{width:"50%",height:"4rem" , borderRadius:"0px",border:"none",backgroundColor:"white",padding:"5px"}}
+                 defaultCountry="RU"
+      placeholder="Enter phone number"
+      value={phone}
+      onChange={setnumber}/>
+                      {/* <input className="form-control"  style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
                        onChange={(e)=> setnumber(e.target.value)}
                      value={phone}
-                      placeholder="Phone number" />
+                      placeholder="Phone number" /> */}
                   <br /><br />
                   
                   <div id="recaptcha-container"></div>
@@ -91,7 +104,7 @@ const ValidateOtp = () => {
                   <button  style={{  background:"linear-gradient(245deg, rgba(11,116,255,1) 0%, rgba(130,242,182,1) 100%)"}}className='btn btn-primary' onClick={signin}>Send OTP</button>
               </div>
               <div style={{ display: show ? "block" : "none" }}>
-                  <input class="form-control" style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
+                  <input className="form-control" style={{width:"40%",borderRadius:"0px",border:"none",backgroundColor:"white",color:"black"}} 
                    type="text" placeholder={"Enter your OTP"}
                       onChange={e => setotp(e.target.value)}
                       value={otp}
@@ -110,7 +123,7 @@ const ValidateOtp = () => {
      
       </div>
       </div>
-        <img class="login-float-child" height={850} width={200} src={sidegif2} />
+        <img className="login-float-child2" height={950} width={200} src={sidegif2} />
       </div>
   );
 }

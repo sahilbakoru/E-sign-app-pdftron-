@@ -79,7 +79,7 @@ const Trash = () => {
 
                     {doc.isdelete==="true"? <span style={{padding:"2%"}}>
                       {doc.phones.map(phone => (
-                         <button class="btn btn-primary" style={{paddingLeft:"8%"}}
+                         <button className="btn btn-primary" style={{paddingLeft:"8%"}}
                          onClick={event => {
                            const { docRef, docId } = doc;
                            dispatch(setDocToView({ docRef, docId }));
@@ -103,7 +103,7 @@ const Trash = () => {
                       
                       {doc.isdelete==="true"? <div style={{padding:"2%"}}>
                       {doc.phones.map(phone => (
-                    <button class="btn btn-warning" style={{paddingLeft:"2%"}}
+                    <button className="btn btn-warning" style={{paddingLeft:"2%"}}
                     onClick={() => {
                         restore(doc.docId,doc.isdelete);
                     }} >Restore</button>

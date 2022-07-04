@@ -16,9 +16,9 @@ import { selectUser, setUser } from '../../firebase/firebaseSlice';
 import { resetSignee } from '../Assign/AssignSlice';
 import { navigate, Link } from '@reach/router';
 import { Spinner } from 'gestalt';
-import Navbar from '../navbar/Navbar';
+// import Navbar from '../navbar/Navbar';
 import './Profile.css';
-  import  download  from '../../img/download.png';
+  import  download  from '../../img/newlogo.png';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,8 @@ const ProfilePage = () => {
   const [newname, setName2] = useState()
   const [users, setUsers] = useState([]);
   const [show2, setshow2] = useState(false);
+  const [mshow, setmshow] = useState(false);
+
   // console.log("all Users",users )
  
 
@@ -39,7 +41,7 @@ const ProfilePage = () => {
 
   const updateName =  async( uid,doc) => {
     setshow2(true)
-   await firestore.collection("users").doc(user.uid).update({displayName:newname.toLowerCase()});
+   await firestore.collection("users").doc(user.uid).update({displayName:newname.replace(/\s/g, '').toLowerCase()});
    document.location.reload()
   };
  
@@ -57,9 +59,7 @@ const ProfilePage = () => {
 
   },[]);
 
-  if(displayName==null){
-    $("#myModal").modal();
-  }
+
 
 let exist=true
  
@@ -74,49 +74,40 @@ for (var i = 0; i < users.length; i++) {
       exist=false
     }
 }
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
+
+if(displayName!==null){
+  navigate("/")
+}
+
 
 
   return (
     <div>
-    <Box display="flex" direction="row" paddingY={2} color={'white'} >
-      <Column span={9}>
-        <Box padding={0.5}>
-          <Link to="/" className='profileLink'><img style={{width:"17rem",marginLeft:"2rem"}} src={download}></img></Link> 
-        </Box>
+ 
+
          
-      </Column>
+
       
     
 {displayName==null?
 
-      <div class="container">
+      <div className="container">
   <h4 style={{"color":"red"}}>You don't have a username.</h4>
   <h4>Please add username to send or receve docs</h4>
  
-  <button type="button" class="btn btn-info btn-lg" id="myBtn">Add Username</button>
-
- 
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-     
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Select a unique username</h4>
+      <div className="modal-content">
+        <div className="modal-header">
+          <button type="button" className="close" data-dismiss="modal">&times;</button>
+          <h4 className="modal-title">Select a unique username</h4>
           <h5>This username will be used to send or recive documents</h5>
           <h5 style={{"color":"red"}} >NOTE: You will not be able to change it later.</h5>
+          <h5 style={{"color":"red"}} >Do not Add space in username, all spaces in username will be removed.</h5>
 
         </div>
-        <div class="modal-body">
+        <div className="modal-body">
         { displayName==null?
 <div>
-<input class="form-control" placeholder='enter new username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
+<input className="form-control"  placeholder='enter new username'onChange={(e) => setName2(e.target.value)} value={displayName} ></input>
 <br></br>
 </div>:
             ""
@@ -124,38 +115,25 @@ $(document).ready(function(){
 }
 {show2 ?<Spinner show={true} ></Spinner>:""}
 
-{exist?"":<button class="btn btn-primary" text='add username' onClick={() => {
+{exist?"":<button className="btn btn-primary" text='add username' onClick={() => {
       updateName(displayName);
     }} >Add </button>}
-            {exist?<h4 style={{"color":"red"}} >This username is taken</h4>: "" }
+       {show2? "":<div>{exist?<h4 style={{"color":"red"}} >This username is taken</h4>: "" }</div>} 
         </div>
-        <div class="modal-footer">  
+        <div className="modal-footer">  
         </div>
       </div>
-    </div>
-  </div>
+  
 </div>:""
 
 }
 
 
-      <Column span={3}>
   
-        <Box padding={1}>
-       
-          <Row>
-  
-            <Stack>
-              {/* <Text>{phone}</Text> */}
-            </Stack>
-          </Row>
-        </Box>
-        <h4>{phone}</h4>
-      </Column>
      
-    </Box>
+
     
-    <Navbar/>
+    {/* <Navbar/> */}
    
     </div>
 
