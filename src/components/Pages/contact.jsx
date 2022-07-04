@@ -77,7 +77,7 @@ const tothetop=()=>{
               </form> */}
             </div>
           </div>
-          <div className='col-md-3 col-md-offset-1 contact-info'>
+          {/* <div className='col-md-3 col-md-offset-1 contact-info'>
             <div className='contact-item'>
               <h3>Contact Info</h3>
               <p>
@@ -103,7 +103,7 @@ const tothetop=()=>{
                 {props.data ? props.data.email : 'loading'}
               </p>
             </div>
-          </div>
+          </div> */}
           <div className='col-md-12'>
             <div className='row'>
               <div className='social'>
