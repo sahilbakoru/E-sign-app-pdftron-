@@ -10,7 +10,7 @@ const [send,setsend] = useState(false)
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_sqlagp8', 'template_vankz85', form.current, 'y37TpNVFos_t9LQz-')
+    emailjs.sendForm('service_stkg96h', 'template_kux4161', form.current, 'TMhAnJg6kVuKz4-w_')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
