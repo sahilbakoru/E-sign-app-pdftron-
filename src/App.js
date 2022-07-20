@@ -18,6 +18,7 @@ import Header from './components/Header';
 import Welcome from './components/Welcome';
 import Tosign from './components/Tosign';
 import Toview from './components/Toview';
+import Sends from './components/Sends';
 import Trashcan from './components/Trashcan';
 import Allhome from './Allhome';
 import { auth, generateUserDocument } from './firebase/firebase';
@@ -54,6 +55,7 @@ const App = () => {
         <Tosign path="/tosign" />
         <Toview path="/toview" />
         <Trashcan path="/trash" />
+        <Sends path="/send" />
         <Sucsess path="/sucsess" />
         <Cancel path="/justincase"/>
         <Terms path="/terms" />

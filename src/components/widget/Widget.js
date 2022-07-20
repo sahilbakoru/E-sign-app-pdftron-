@@ -1,7 +1,7 @@
 import React from 'react'
 import './widget.css'
 
-import PricingPage from '../Pricing/PricingPage';
+// import PricingPage from '../Pricing/PricingPage';
 import  StripeContainer from '../Pricing/StripeContainer'
 // import { firestore } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';

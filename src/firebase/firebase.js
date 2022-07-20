@@ -195,3 +195,28 @@ export const searchForDocumentsSigned = async phone => {
 
   return docIds;
 };
+
+export const searchForDocumentsSend = async phone => {
+  const documentsRef = firestore.collection('documentsToSign');
+
+  const docIds = [];
+
+  let query = documentsRef
+    .where('phone', '==', phone)
+    .where('signed', '==', false);
+
+  await query
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        const { docRef, phones, signedTime,isdelete,requestedTime } = doc.data();
+        const docId = doc.id;
+        docIds.push({ docRef, phones, signedTime,requestedTime, docId,isdelete });
+      });
+    })
+    .catch(function (error) {
+      console.log('Error getting documents: ', error);
+    });
+
+  return docIds;
+};

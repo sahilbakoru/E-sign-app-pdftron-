@@ -3,7 +3,7 @@
   "description": "Cloud Functions for Firebase",
   "proxy": "http://localhost:3000",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",

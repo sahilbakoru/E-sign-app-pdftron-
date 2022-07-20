@@ -1,3 +1,4 @@
+// this component is not used in the apps
 import React, { useState ,useEffect} from 'react'
 import './pricing.css'
 import { Spinner } from 'gestalt';

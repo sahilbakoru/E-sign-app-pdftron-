@@ -1,3 +1,5 @@
+// this component is not used in the apps
+
 import React from 'react'
 import { firestore } from '../../firebase/firebase';
 import { useSelector} from 'react-redux';

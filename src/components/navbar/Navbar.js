@@ -118,6 +118,18 @@ const Navbar = () => {
 
           <li
             onClick={(event) => {
+              navigate(`/send`);
+            }}
+          >
+            <a href="#" style={{ color: "white" }}>
+              <i className="fa fa-send"></i> Sent
+            </a>
+            &nbsp;
+         
+          </li>
+
+          <li
+            onClick={(event) => {
               navigate(`/trash`);
             }}
           >
