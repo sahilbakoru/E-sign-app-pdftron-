@@ -30,20 +30,20 @@ const tothetop=()=>{
     <div>
       <div id='contact'>
         <div className='container'>
-          <div className='col-md-8'>
-            <div className='row'>
-              <div className='section-title'>
-                <h2>Get In Touch</h2>
+          {/* <div className='col-md-8'> */}
+       
+              {/* <div className='section-title'> */}
+                {/* <h2>Get In Touch</h2>
                 <p>
                   Please fill out the form below to send us an email and we will
                   get back to you as soon as possible.
-                </p>
-              </div>
+                </p> */}
+              {/* </div> */}
 {send?<div className="alert alert-success" role="alert">
   Message send successfully 
 </div>
 :""}
-              <form ref={form} onSubmit={sendEmail}>
+              {/* <form ref={form} onSubmit={sendEmail}>
       <label style={{fontSize:"2rem"}}>Message</label>
       <textarea style={{borderRadius:"1.5rem"}}
        name="message" 
@@ -54,7 +54,7 @@ const tothetop=()=>{
       />
     
       <input type="submit" value="Send" className='btn btn-custom btn-lg' />
-    </form>
+    </form> */}
               {/* <form name='sentMessage' validate onSubmit={handleSubmit}>
                 <div className='row'>
                 </div>
@@ -75,8 +75,8 @@ const tothetop=()=>{
                   Send Message
                 </button>
               </form> */}
-            </div>
-          </div>
+        
+          {/* </div> */}
           {/* <div className='col-md-3 col-md-offset-1 contact-info'>
             <div className='contact-item'>
               <h3>Contact Info</h3>

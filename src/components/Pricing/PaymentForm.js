@@ -36,12 +36,14 @@ const stripe = useStripe()
     const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(true);
   const [payerror, setpayerror] = useState(false);
+  const [letter, setletter] = useState('');
+
+console.log("letter: -",letter)
 
     let { ispaid } = user;
 
-    const plusTen=async(uid,doc)=>{
-     
-        await firestore.collection("users").doc(user2.uid).update({paying:"false",ispaid:ispaid+10});
+    const plusTen=async(uid,doc)=>{    
+        await firestore.collection("users").doc(user2.uid).update({ispaid:ispaid+Number(letter)});
         document.location.reload()
             }
 
@@ -80,7 +82,7 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
                 headers: {
                     'Content-Type': 'application/json'
                     },
-            amount: 999,  
+            amount: 99*Number(letter),  
             id
             })
 
@@ -105,8 +107,24 @@ const createPaymentIntent = functions.httpsCallable('createPaymentIntent');
       <ul className="priceprice" >
         <li className="header">Pricing</li>
         <li className="grey">€0.99/Per Letter Sent &nbsp; </li>
-      <li className="grey2">€9.9 For 10 Letter Sent &nbsp;
-<button className='btn btn-success' onClick={setpaycard} > Top Up Now </button> </li>
+      <li className="grey2">Add balance :&nbsp; 
+      <select
+      onChange={e => setletter(e.target.value)}
+      value={letter} 
+      name="cars" id="cars">
+    <option value="0">Select letters</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+
+  </select>
+      &nbsp;
+{letter <1?"": <button className='btn btn-success' onClick={setpaycard} > Top Up Now </button>} </li>
       </ul>
       </div>  :
       <form onSubmit={handleSubmit}>
